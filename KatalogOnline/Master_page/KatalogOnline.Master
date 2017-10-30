@@ -1,0 +1,70 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="KatalogOnline.master.cs" Inherits="KatalogOnline.Master_page.KatalogOnline" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Katalog Online</title>
+    <asp:ContentPlaceHolder ID="Main_head" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body>
+<form id="form1" runat="server">
+    <div id="wrapper">
+        <div id="header">
+            <div id="logo">
+                <asp:LinkButton runat="server" ID="lbtnDefault" Text="My Website" />
+            </div>
+            <div id="menu">
+                <ul>
+                    <li class="first">
+                        <asp:LinkButton ID="lbtnHome" runat="server">HOME</asp:LinkButton>
+                    </li>
+                    <li>
+                        <asp:LinkButton ID="lbtnLogin" PostBackUrl="~/Login.aspx" runat="server">LOGIN</asp:LinkButton>
+                        <asp:LinkButton ID="lbtnLogout" runat="server">LOGOUT</asp:LinkButton>
+                    </li>
+                    <li>
+                        <asp:LinkButton ID="lbtnListKereta" runat="server">LIST KERETA BELANJA</asp:LinkButton>
+                    </li>
+                    <li class="last">
+                        <asp:Label ID="lblKet" runat="server" Text="Selamat Datang,"></asp:Label>
+                        <asp:Label ID="lblUsername" runat="server" Text="USERNAME"></asp:Label>
+                    </li>
+                </ul>
+                <br class="clearfix" />
+            </div>
+        </div>
+    </div>
+    <div id="wrapper2">
+        <div id="splash"></div>
+        <div id="page">
+            <div id="content">
+                <table width="100%">
+                    <tr>
+                        <td>
+                            <asp:Menu runat="server" ID="Menu1" Orientation="Horizontal" StaticDisplayLevels="2" BackColor="#FFFBD6" DataSourceID="SiteMap_DS" >
+                                <StaticSelectedStyle BackColor="#FFCC66" />
+                                <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+                                <DynamicHoverStyle BackColor="#990000" ForeColor="White" />
+                                <DynamicMenuStyle BackColor="#FFFBD6" />
+                                <DynamicSelectedStyle BackColor="#FFCC66" />
+                                <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+                                <StaticHoverStyle BackColor="#990000" ForeColor="White" />
+                            </asp:Menu>
+                            <asp:SiteMapDataSource ID="SiteMap_DS" runat="server" />
+                            <asp:XmlDataSource ID="SiteMapDS" runat="server"></asp:XmlDataSource>
+                        </td>
+                    </tr>
+                    <tr>
+                        <!-- Main content place holder -->
+                        <center>
+                            <asp:ContentPlaceHolder ID="Main_content" runat="server"></asp:ContentPlaceHolder>
+                        </center>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</form>
+</body>
+</html>
