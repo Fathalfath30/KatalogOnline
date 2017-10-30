@@ -5,7 +5,8 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Main_content" runat="server">
-    <table style="width:100%;" border="1">
+    <td>
+    <table style="width:100%;" border="1" cellpadding="2" cellspacing="0">
         <tr>
             <td class="style1" colspan="3">MANAJEMEN DATA BARANG</td>
         </tr>
@@ -25,9 +26,36 @@
                 <asp:TextBox ID="Txt_CariNmBarang" runat="server" AutoPostBack="True"></asp:TextBox>
             </td>
         </tr>
-        <tr>
+        <tr align="center">
             <td class="style2" colspan="3">
-                <asp:GridView runat="server" ID="Gview_Barang"></asp:GridView>
+                <asp:GridView runat="server" ID="Gview_Barang"
+                    AllowPaging="true" 
+                    PageSize="5" 
+                    EmptyDataText="GRID TIDAK ADA DATA" 
+                    AutoGenerateColumns="false"
+                    BackColor="White" 
+                    BorderColor="#CC9966" 
+                    BorderStyle="None" 
+                    BorderWidth="1px"
+                    CellPadding="4">
+                    <Columns>
+                        <asp:ImageField 
+                            DataImageUrlFormatString="~/User_files/Upload/{0}" 
+                            HeaderText="Gambar" 
+                            DataImageUrlField="PGbrBrg">
+                            <ControlStyle Height="100px" Width="100px" />
+                        </asp:ImageField>
+                        <asp:BoundField DataField="PNmBrg" HeaderText="Nama Barang" />
+                        <asp:BoundField DataField="PHrgBrg" HeaderText="Harga Barang" />
+                        <asp:BoundField DataField="PInfoBrg" HeaderText="Info Barang" />
+                        <asp:BoundField DataField="PStokBrg" HeaderText="Stok" />
+                        <asp:CommandField SelectText="Pilih" ShowSelectButton="True" />
+                    </Columns>
+                    <FooterStyle BackColor="#507CD1" ForeColor="White" Font-Bold="True" />
+                    <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                    <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                    <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                </asp:GridView>
             </td>
         </tr>
         <tr>
@@ -115,4 +143,5 @@
             </td>
         </tr>
     </table>
+    </td>
 </asp:Content>

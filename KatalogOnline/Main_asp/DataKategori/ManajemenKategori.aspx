@@ -2,20 +2,20 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="Main_head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Main_content" runat="server">
-    <table style="width:83%;" border="1">
+    <table style="width:100%;" border="1" cellpadding="2" cellspacing="0">
             <tr>
                 <td colspan="4">
                     <center><h3><u>MANAJEMEN KATEGORI</u></h3></center></td>
             </tr>
             <tr>
                 <td colspan="2">
-                    Cari Berdasarkan Nama Kategori :</td>
+                    Cari BerdaCari Berdasarkan Nama Kategori :</td>
                 <td colspan="2">
                     <asp:TextBox runat="server" ID="Txt_CariKategori" />
                 </td>
             </tr>
             <tr>
-                <td colspan="4">
+                <td colspan="4" align="center">
                     <u>
                         <asp:GridView runat="server" ID="Gview_Kategori" 
                             AllowPaging="true" 
@@ -28,10 +28,10 @@
                             BorderWidth="1px"
                             CellPadding="4">
                             <Columns>
-                                <asp:CommandField ShowSelectButton="True" />
                                 <asp:BoundField DataField="PIdKat" HeaderText="Id Kategori" />
                                 <asp:BoundField DataField="PNmKat" HeaderText="Nama Kategori" />
                                 <asp:BoundField DataField="PInfoKat" HeaderText="Info Kategori" />
+                                <asp:CommandField ShowSelectButton="True" SelectText="Pilih" />
                             </Columns>
                             <FooterStyle BackColor="#507CD1" ForeColor="White" Font-Bold="True" />
                             <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
@@ -42,8 +42,7 @@
                 </td>
             </tr>
             <tr>
-                <td>Id Kategori</td>
-                <td colspan="2">:</td>
+                <td>Id Kategori             <td colspan="2">:</td>
                 <td class="style1">
                     <asp:TextBox runat="server" ID="Txt_IdKategori" />
                     <asp:RequiredFieldValidator runat="server" ID="RFV_Txt_IdKategori" 
