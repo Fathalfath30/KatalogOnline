@@ -143,6 +143,7 @@
     <Content Include="Content\DataPengguna\ManajemenPengguna.aspx" />
     <Content Include="Content\DataPromo\ModifikasiPromo.aspx" />
     <Content Include="Content\DataPromo\TambahPromo.aspx" />
+    <Content Include="User_files\Upload\default.jpg" />
     <Content Include="Web.config" />
     <Content Include="Xml\AdRotator.xml">
       <SubType>Designer</SubType>
@@ -260,7 +261,6 @@
     <Folder Include="Main_script\DataKategori\" />
     <Folder Include="Main_script\DataPengguna\" />
     <Folder Include="Main_script\DataPromo\" />
-    <Folder Include="User_files\Upload\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

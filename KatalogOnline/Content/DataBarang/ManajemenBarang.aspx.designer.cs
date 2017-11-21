@@ -13,13 +13,13 @@ namespace KatalogOnline.Main_asp.DataBarang {
     public partial class ManajemenBarang {
         
         /// <summary>
-        /// Ddown_CariKategori control.
+        /// Cmb_Kategori control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList Ddown_CariKategori;
+        protected global::System.Web.UI.WebControls.DropDownList Cmb_Kategori;
         
         /// <summary>
         /// Txt_CariNmBarang control.
@@ -31,22 +31,22 @@ namespace KatalogOnline.Main_asp.DataBarang {
         protected global::System.Web.UI.WebControls.TextBox Txt_CariNmBarang;
         
         /// <summary>
-        /// Gview_Barang control.
+        /// Grid_Barang control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView Gview_Barang;
+        protected global::System.Web.UI.WebControls.GridView Grid_Barang;
         
         /// <summary>
-        /// Ddown_NamaKategori control.
+        /// Cmb_Kategori2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList Ddown_NamaKategori;
+        protected global::System.Web.UI.WebControls.DropDownList Cmb_Kategori2;
         
         /// <summary>
         /// Txt_IdBarang control.

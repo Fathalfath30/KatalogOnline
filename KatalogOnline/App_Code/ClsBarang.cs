@@ -18,7 +18,8 @@ namespace KatalogOnline
         private string FKdBrg;
         private string FNmBrg;
         private int FStokBrg;
-        private string StrConn = WebConfigurationManager.ConnectionStrings["CS_webonline"].ConnectionString;
+        private string Query;
+        private string StrConn = WebConfigurationManager.ConnectionStrings["CS_Webonline"].ConnectionString;
 
         public string PGbrBrg
         {
@@ -108,23 +109,20 @@ namespace KatalogOnline
         {
             using (SqlConnection conn = new SqlConnection(StrConn))
             {
-                string NilaiAwal, NilaiAsli, NilaiAuto;
-                int NilaiTambah;
-                string Query = "SELECT KdBrg FROM barang ORDER BY KdBrg DESC";
-                SqlCommand cmd = new SqlCommand(Query, conn);
-                SqlDataReader reader;
-                conn.Open();
-                reader = cmd.ExecuteReader();
-                if (reader.Read())
+                string ID = "BRG001";
+                using (SqlConnection SqlConn = new SqlConnection(StrConn))
                 {
-                    NilaiAsli = reader["KdBrg"].ToString();
-                    NilaiTambah = System.Convert.ToInt32(NilaiAsli.Substring(3, 4)) + 1;
-                    NilaiAwal = System.Convert.ToString(NilaiTambah);
-                    NilaiAuto = "BRG" + "0000".Substring(NilaiAwal.Length) + NilaiAwal;
+                    Query = "SELECT TOP 1 RIGHT(KdBrg, 3) AS ID ";
+                    Query += "FROM barang ORDER BY KdBrg DESC;";
+                    SqlCommand SqlCmd = new SqlCommand(Query, SqlConn);
+                    SqlConn.Open();
+                    SqlDataReader Reader = SqlCmd.ExecuteReader();
+                    if (Reader.Read())
+                    {
+                        ID = string.Format("BRG{0:000}", Convert.ToInt32(Reader["ID"].ToString()) + 1);
+                    }
                 }
-                else
-                { NilaiAuto = "BRG0001"; }
-                return NilaiAuto;
+                return ID;
             }
 
 
@@ -132,165 +130,109 @@ namespace KatalogOnline
 
         public int Hapus()
         {
-            using (SqlConnection conn = new SqlConnection(StrConn))
+            using (SqlConnection SqlConn = new SqlConnection(StrConn))
             {
-                string Query = "DELETE FROM barang WHERE KdBrg=@1";
-                SqlCommand cmd = new SqlCommand(Query, conn);
-                cmd.Parameters.AddWithValue("@1", FKdBrg);
-                int Hasil = 0;
-                conn.Open();
-                Hasil = cmd.ExecuteNonQuery();
-                return Hasil;
-
+                Query = "DELETE FROM barang WHERE KdBrg=@p1";
+                SqlCommand SqlCmd = new SqlCommand(Query, SqlConn);
+                SqlCmd.Parameters.AddWithValue("@p1", PKdBrg);
+                SqlConn.Open();
+                return SqlCmd.ExecuteNonQuery();
             }
-
-
         }
 
         public int Simpan()
         {
-            using (SqlConnection conn = new SqlConnection(StrConn))
+            using (SqlConnection SqlConn = new SqlConnection(StrConn))
             {
-                String Query =
-           "INSERT INTO barang(KdBrg,NmBrg,HrgBrg,InfoBrg,GbrBrg,StokBrg,IdKat)" +
-           "VALUES(@1,@2,@3,@4,@5,@6,@7)";
-                SqlCommand cmd = new SqlCommand(Query, conn);
-                cmd.Parameters.AddWithValue("@1", FKdBrg);
-                cmd.Parameters.AddWithValue("@2", FNmBrg);
-                cmd.Parameters.AddWithValue("@3", FHrgBrg);
-                cmd.Parameters.AddWithValue("@4", FInfoBrg);
-                cmd.Parameters.AddWithValue("@5", FGbrBrg);
-                cmd.Parameters.AddWithValue("@6", FStokBrg);
-                cmd.Parameters.AddWithValue("@7", FIdKat);
-                int Hasil = 0;
-                conn.Open();
-                Hasil = cmd.ExecuteNonQuery();
-                return Hasil;
-
-            }
-
+                Query = "INSERT INTO barang(KdBrg, NmBrg, HrgBrg, InfoBrg, GbrBrg, StokBrg, IdKat) ";
+                Query += "VALUES(@p1, @p2, @p3, @p4, @p5, @p6, @p7)";
+                SqlCommand SqlCmd = new SqlCommand(Query, SqlConn);
+                SqlCmd.Parameters.AddWithValue("@p1", PKdBrg);
+                SqlCmd.Parameters.AddWithValue("@p2", PNmBrg);
+                SqlCmd.Parameters.AddWithValue("@p3", PHrgBrg);
+                SqlCmd.Parameters.AddWithValue("@p4", PInfoBrg);
+                SqlCmd.Parameters.AddWithValue("@p5", PGbrBrg);
+                SqlCmd.Parameters.AddWithValue("@p6", PStokBrg);
+                SqlCmd.Parameters.AddWithValue("@p7", PIdKat);
+                SqlConn.Open();
+                return SqlCmd.ExecuteNonQuery();
+            }                                    
         }
 
-        public List<ClsBarang> TampilData(string xNmBrg, string XIdKat)
+        public List<ClsBarang> Tampil(string keyword = "")
         {
-            using (SqlConnection conn = new SqlConnection(StrConn))
+            using (SqlConnection SqlConn = new SqlConnection(StrConn))
             {
-                string Query = "SELECT*FROM barang WHERE NmBrg LIKE '%" + xNmBrg + "%' AND IdKat='" + XIdKat + "'";
-                List<ClsBarang> tmpBaca = new List<ClsBarang>();
-                SqlCommand cmd = new SqlCommand(Query, conn);
-
-                SqlDataReader reader;
-                conn.Open();
-                reader = cmd.ExecuteReader();
-                if (reader.HasRows)
+                SqlCommand SqlCmd;
+                List<ClsBarang> MainDT = new List<ClsBarang>();
+                if (keyword.Trim() != "")
                 {
-                    while (reader.Read())
-                    {
-                        ClsBarang objTemp = new ClsBarang();
-                        objTemp.FIdKat = reader["IdKat"].ToString();
-                        objTemp.FKdBrg = reader["KdBrg"].ToString();
-                        objTemp.FNmBrg = reader["NmBrg"].ToString();
-                        objTemp.FInfoBrg = reader["InfoBrg"].ToString();
-                        objTemp.FHrgBrg = System.Convert.ToDouble(reader["HrgBrg"]);
-                        objTemp.FGbrBrg = reader["GbrBrg"].ToString();
-                        objTemp.FStokBrg = System.Convert.ToInt32(reader["StokBrg"]);
-                        tmpBaca.Add(objTemp);
-                    }
-                }
-                return tmpBaca;
-            }
-
-        }
-
-        public List<ClsBarang> TampilData2(string xNmBrg)
-        {
-            using (SqlConnection conn = new SqlConnection(StrConn))
-            {
-                string Query = "SELECT * FROM barang " +
-                    "WHERE NmBrg LIKE '%" + xNmBrg + "%' AND " +
-                    "KdBrg NOT IN (SELECT KdBrg FROM promo)";
-                List<ClsBarang> tmpBaca = new List<ClsBarang>();
-                SqlCommand cmd = new SqlCommand(Query, conn);
-
-                SqlDataReader reader;
-                conn.Open();
-                reader = cmd.ExecuteReader();
-                if (reader.HasRows)
-                {
-                    while (reader.Read())
-                    {
-                        ClsBarang objTemp = new ClsBarang();
-                        objTemp.FIdKat = reader["IdKat"].ToString();
-                        objTemp.FKdBrg = reader["KdBrg"].ToString();
-                        objTemp.FNmBrg = reader["NmBrg"].ToString();
-                        objTemp.FInfoBrg = reader["InfoBrg"].ToString();
-                        objTemp.FHrgBrg = System.Convert.ToDouble(reader["HrgBrg"]);
-                        objTemp.FGbrBrg = reader["GbrBrg"].ToString();
-                        objTemp.FStokBrg = System.Convert.ToInt32(reader["StokBrg"]);
-                        tmpBaca.Add(objTemp);
-                    }
+                    Query = "SELECT * FROM barang ";
+                    Query += "WHERE KdBrg LIKE '%{0}%' OR NmBrg LIKE '%{0}%'";
+                    SqlCmd = new SqlCommand(string.Format(Query, keyword), SqlConn);
 
                 }
-                return tmpBaca;
-            }
-        }
-
-
-
-        public List<ClsBarang> TampilData3(string xNmBrg)
-        {
-            using (SqlConnection conn = new SqlConnection(StrConn))
-            {
-                string Query = "SELECT barang.IdKat,barang.KdBrg,barang.NmBrg, " +
-                    "barang.InfoBrg,barang.HrgBrg,barang.GbrBrg,barang.StokBrg " +
-                    "FROM barang LEFT OUTER JOIN promo " +
-                    "ON barang.KdBrg=promo.KdBrg " +
-                    "WHERE barang.NmBrg LIKE '%" + xNmBrg + "%'";
-                List<ClsBarang> tmpBaca = new List<ClsBarang>();
-                SqlCommand cmd = new SqlCommand(Query, conn);
-
-                SqlDataReader reader;
-                conn.Open();
-                reader = cmd.ExecuteReader();
-                if (reader.HasRows)
+                else
                 {
-                    while (reader.Read())
+                    Query = "SELECT * FROM barang ";
+                    SqlCmd = new SqlCommand(Query, SqlConn);
+                }
+                SqlConn.Open();
+                SqlDataReader Reader = SqlCmd.ExecuteReader();
+                if (Reader.HasRows)
+                {
+                    MainDT.Clear();
+                    while(Reader.Read())
                     {
-                        ClsBarang objTemp = new ClsBarang();
-                        objTemp.FIdKat = reader["IdKat"].ToString();
-                        objTemp.FKdBrg = reader["KdBrg"].ToString();
-                        objTemp.FNmBrg = reader["NmBrg"].ToString();
-                        objTemp.FInfoBrg = reader["InfoBrg"].ToString();
-                        objTemp.FHrgBrg = System.Convert.ToDouble(reader["HrgBrg"]);
-                        objTemp.FGbrBrg = reader["GbrBrg"].ToString();
-                        objTemp.FStokBrg = System.Convert.ToInt32(reader["StokBrg"]);
-                        tmpBaca.Add(objTemp);
+                        ClsBarang TmpBarang = new ClsBarang();
+                        TmpBarang.FIdKat = Reader["IdKat"].ToString();
+                        TmpBarang.FKdBrg = Reader["KdBrg"].ToString();
+                        TmpBarang.FNmBrg = Reader["NmBrg"].ToString();
+                        TmpBarang.FInfoBrg = Reader["InfoBrg"].ToString();
+                        TmpBarang.FHrgBrg = System.Convert.ToDouble(Reader["HrgBrg"]);
+                        TmpBarang.FGbrBrg = Reader["GbrBrg"].ToString();
+                        TmpBarang.FStokBrg = System.Convert.ToInt32(Reader["StokBrg"]);
+                        MainDT.Add(TmpBarang);
                     }
                 }
-                return tmpBaca;
+                return MainDT;
             }
         }
 
         public int Ubah()
         {
-            using (SqlConnection conn = new SqlConnection(StrConn))
+            using (SqlConnection SqlConn = new SqlConnection(StrConn))
             {
-                string Query =
-                   "UPDATE barang SET NmBrg=@1, InfoBrg=@2, HrgBrg=@3, " +
-                   "GbrBrg=@4, StokBrg=@5, IdKat=@6 WHERE KdBrg=@7";
-                SqlCommand cmd = new SqlCommand(Query, conn);
-                cmd.Parameters.AddWithValue("@1", FNmBrg);
-                cmd.Parameters.AddWithValue("@2", FInfoBrg);
-                cmd.Parameters.AddWithValue("@3", FHrgBrg);
-                cmd.Parameters.AddWithValue("@4", FGbrBrg);
-                cmd.Parameters.AddWithValue("@5", FStokBrg);
-                cmd.Parameters.AddWithValue("@6", FIdKat);
-                cmd.Parameters.AddWithValue("@7", FKdBrg);
-                int Hasil = 0;
-                conn.Open();
-                Hasil = cmd.ExecuteNonQuery();
-                return Hasil;
-
+                SqlCommand SqlCmd;
+                if (PGbrBrg != "")
+                {
+                    Query = "UPDATE barang SET ";
+                    Query += "NmBrg=@p1, InfoBrg=@p2, HrgBrg=@p3, ";
+                    Query += "GbrBrg=@p4, StokBrg=@p5, IdKat=@p6 WHERE KdBrg=@p7";
+                    SqlCmd = new SqlCommand(Query, SqlConn);
+                    SqlCmd.Parameters.AddWithValue("@p1", PNmBrg);
+                    SqlCmd.Parameters.AddWithValue("@p2", PInfoBrg);
+                    SqlCmd.Parameters.AddWithValue("@p3", PHrgBrg);
+                    SqlCmd.Parameters.AddWithValue("@p4", PGbrBrg);
+                    SqlCmd.Parameters.AddWithValue("@p5", PStokBrg);
+                    SqlCmd.Parameters.AddWithValue("@p6", PIdKat);
+                    SqlCmd.Parameters.AddWithValue("@p7", PKdBrg);
+                }
+                 else
+                {
+                    Query = "UPDATE barang SET ";
+                    Query += "NmBrg=@p1, InfoBrg=@p2, HrgBrg=@p3, ";
+                    Query += "StokBrg=@p4, IdKat=@p5 WHERE KdBrg=@p6";
+                    SqlCmd = new SqlCommand(Query, SqlConn);
+                    SqlCmd.Parameters.AddWithValue("@p1", PNmBrg);
+                    SqlCmd.Parameters.AddWithValue("@p2", PInfoBrg);
+                    SqlCmd.Parameters.AddWithValue("@p3", PHrgBrg);
+                    SqlCmd.Parameters.AddWithValue("@p4", PStokBrg);
+                    SqlCmd.Parameters.AddWithValue("@p5", PIdKat);
+                    SqlCmd.Parameters.AddWithValue("@p6", PKdBrg);
+                }
+                SqlConn.Open();
+                return SqlCmd.ExecuteNonQuery();
             }
         }
     }

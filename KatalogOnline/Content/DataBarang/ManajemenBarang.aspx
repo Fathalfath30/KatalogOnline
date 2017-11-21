@@ -13,7 +13,7 @@
             <td>Cari Kategori</td>
             <td>:</td>
             <td>
-                <asp:DropDownList runat="server" id="Ddown_CariKategori"></asp:DropDownList>
+                <asp:DropDownList runat="server" id="Cmb_Kategori"></asp:DropDownList>
             </td>
         </tr>
         <tr>
@@ -27,16 +27,16 @@
         </tr>
         <tr align="center">
             <td class="style2" colspan="3">
-                <asp:GridView runat="server" ID="Gview_Barang"
-                    AllowPaging="true" 
+                <asp:GridView runat="server" ID="Grid_Barang"
+                    AllowPaging="True" 
                     PageSize="5" 
                     EmptyDataText="GRID TIDAK ADA DATA" 
-                    AutoGenerateColumns="false"
+                    AutoGenerateColumns="False"
                     BackColor="White" 
                     BorderColor="#CC9966" 
                     BorderStyle="None" 
                     BorderWidth="1px"
-                    CellPadding="4">
+                    CellPadding="4" DataKeyNames="PKdBrg,PNmBrg,PHrgBrg,PInfoBrg,PStokBrg" OnPageIndexChanging="Grid_Barang_PageIndexChanging" OnSelectedIndexChanged="Grid_Barang_SelectedIndexChanged">
                     <Columns>
                         <asp:ImageField 
                             DataImageUrlFormatString="~/User_files/Upload/{0}" 
@@ -63,7 +63,7 @@
             </td>
             <td>:</td>
             <td>
-                <asp:DropDownList runat="server" ID="Ddown_NamaKategori"></asp:DropDownList>
+                <asp:DropDownList runat="server" ID="Cmb_Kategori2"></asp:DropDownList>
             </td>
         </tr>
         <tr>
@@ -132,17 +132,17 @@
                         <asp:Button runat="server" ID="BtnSimpan" 
                             Text="Simpan" 
                             CssClass="Form_button"
-                            ValidationGroup="F_ManajemenBarang" />&nbsp;
+                            ValidationGroup="F_ManajemenBarang" OnClick="BtnSimpan_Click" />&nbsp;
                         <asp:Button runat="server" ID="BtnUbah" 
                             Text="Ubah" 
                             CssClass="Form_button" 
-                            ValidationGroup="F_ManajemenBarang"/>&nbsp;
+                            ValidationGroup="F_ManajemenBarang" OnClick="BtnUbah_Click"/>&nbsp;
                         <asp:Button runat="server" ID="BtnHapus" 
                             Text="Hapus" 
-                            CssClass="Form_button" />&nbsp;
+                            CssClass="Form_button" OnClick="BtnHapus_Click" />&nbsp;
                         <asp:Button runat="server" ID="BtnBatal" 
                             Text="Batal" 
-                            CssClass="Form_button"/>
+                            CssClass="Form_button" OnClick="BtnBatal_Click"/>
             </td>
         </tr>
     </table>
