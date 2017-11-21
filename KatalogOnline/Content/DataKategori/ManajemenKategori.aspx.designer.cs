@@ -22,13 +22,13 @@ namespace KatalogOnline.Main_asp.DataKategori {
         protected global::System.Web.UI.WebControls.TextBox Txt_CariKategori;
         
         /// <summary>
-        /// Gview_Kategori control.
+        /// Grid_Kategori control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView Gview_Kategori;
+        protected global::System.Web.UI.WebControls.GridView Grid_Kategori;
         
         /// <summary>
         /// Txt_IdKategori control.
@@ -67,22 +67,22 @@ namespace KatalogOnline.Main_asp.DataKategori {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RFV_Txt_NmKategori;
         
         /// <summary>
-        /// TextBox1 control.
+        /// Txt_InfoKategori control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox Txt_InfoKategori;
         
         /// <summary>
-        /// RequiredFieldValidator1 control.
+        /// RVF_Txt_InfoKategori control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RVF_Txt_InfoKategori;
         
         /// <summary>
         /// BtnSimpan control.

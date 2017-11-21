@@ -21,15 +21,15 @@ body { font-size   : 11.5pt;
     line-height    : 2em;
     color          : #353B3A;
     background     : #D5ECE7 url(../../Gambar/Style/BF1.png) center center / cover no-repeat;
-    letter-spacing : 0.025em; }
-
-body, input { font-family : Georgia, serif; }
+    letter-spacing : 0.025em;
+    font-family:Arial;
+}
 
 p { text-align : justify; }
 
 br.clearfix { clear : both; }
 
-strong { color : #455350; }
+/*strong { color : #455350; }*/
 
 h1, h2, h3, h4 { letter-spacing : -1px;
     text-transform              : uppercase;
@@ -194,4 +194,14 @@ ul h4 { margin-bottom : 0.35em; }
     .fullscreen-bg__video {
         display : none;
     }
+}
+
+#Main-tables {
+    border:1px solid #000;
+    margin:5px;
+}
+
+.Form_button {
+    width:120px;
+    height:35px;
 }

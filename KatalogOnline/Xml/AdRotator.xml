@@ -3,28 +3,28 @@
     <Ad>
         <ImageUrl>~/App_Assets/Banner/G1.jpg</ImageUrl>
         <NavigateUrl>http://www.budiluhur.ac.id</NavigateUrl>
-        <Impressions>10</Impressions>
+        <Impressions>1</Impressions>
         <AlternateText>Gambar</AlternateText>
         <KeyWord>Budi Luhur</KeyWord>
     </Ad>
     <Ad>
         <ImageUrl>~/App_Assets/Banner/G2.jpg</ImageUrl>
         <NavigateUrl>http://www.budiluhur.ac.id</NavigateUrl>
-        <Impressions>10</Impressions>
+        <Impressions>2</Impressions>
         <AlternateText>Gambar</AlternateText>
         <KeyWord>Budi Luhur</KeyWord>
     </Ad>
     <Ad>
         <ImageUrl>~/App_Assets/Banner/G3.jpg</ImageUrl>
         <NavigateUrl>http://www.budiluhur.ac.id</NavigateUrl>
-        <Impressions>10</Impressions>
+        <Impressions>3</Impressions>
         <AlternateText>Gambar</AlternateText>
         <KeyWord>Budi Luhur</KeyWord>
     </Ad>
     <Ad>
         <ImageUrl>~/App_Assets/Banner/G4.jpg</ImageUrl>
         <NavigateUrl>http://www.budiluhur.ac.id</NavigateUrl>
-        <Impressions>10</Impressions>
+        <Impressions>4</Impressions>
         <AlternateText>Gambar</AlternateText>
         <KeyWord>Budi Luhur</KeyWord>
     </Ad>

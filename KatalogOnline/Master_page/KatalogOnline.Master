@@ -36,13 +36,15 @@
         </div>
     </div>
     <div id="wrapper2">
-        <div id="splash"></div>
+        <div id="splash">
+            <asp:AdRotator runat="server" Height="100%" Width="100%" AdvertisementFile="~/Xml/AdRotator.xml" />
+        </div>
         <div id="page">
             <div id="content">
                 <table width="100%">
                     <tr>
                         <td>
-                            <asp:Menu runat="server" ID="Menu1" Orientation="Horizontal" StaticDisplayLevels="2" BackColor="#FFFBD6" DataSourceID="SiteMap_DS" >
+                            <asp:Menu CssClass="MainMenu" Width="100%" runat="server" ID="Menu1" Orientation="Horizontal" StaticDisplayLevels="2" BackColor="" DataSourceID="SiteMap_DS">
                                 <StaticSelectedStyle BackColor="#FFCC66" />
                                 <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
                                 <DynamicHoverStyle BackColor="#990000" ForeColor="White" />
@@ -57,13 +59,33 @@
                     </tr>
                     <tr>
                         <!-- Main content place holder -->
-                        <center>
-                            <asp:ContentPlaceHolder ID="Main_content" runat="server"></asp:ContentPlaceHolder>
-                        </center>
+                        <td>
+                            <center>
+                                <asp:ContentPlaceHolder ID="Main_content" runat="server"></asp:ContentPlaceHolder>
+                            </center>
+                        </td>
                     </tr>
                 </table>
             </div>
         </div>
+    </div>
+    
+    <div id="footer">
+        Copyright &copy; 2017 - Alfath Dioni 
+    </div>
+
+    <div class="fullscreen-bg">
+        <video loop="loop" muted="muted" autoplay="autoplay" poster="App_Assets/Background/BF1.png" class="fullscreen-bg__video">
+            <source src="App_Themes/Background/BF1.ogv" type="video/ogg" />
+            <source src="App_Themes/Background/BF1.mp4" type="video/mp4" />
+            <source src="App_Themes/Background/BF1.webm" type="view/webm" />
+            <source src="../App_Themes/Background/BF1.ogv" type="video/ogg" />
+            <source src="../App_Themes/Background/BF1.mp4" type="video/mp4" />
+            <source src="../App_Themes/Background/BF1.webm" type="view/webm" />
+            <source src="../../App_Themes/Background/BF1.ogv" type="video/ogg" />
+            <source src="../../App_Themes/Background/BF1.mp4" type="video/mp4" />
+            <source src="../../App_Themes/Background/BF1.webm" type="view/webm" />
+        </video>
     </div>
 </form>
 </body>
