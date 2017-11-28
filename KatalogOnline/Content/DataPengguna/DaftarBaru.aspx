@@ -1,7 +1,7 @@
 <%@ Page Title="" Language="C#" MasterPageFile="~/Master_page/KatalogOnline.Master" AutoEventWireup="true" CodeBehind="DaftarBaru.aspx.cs" Inherits="KatalogOnline.Main_asp.DataPengguna.DaftarBaru" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="Main_head" runat="server">
     <style type="text/css">
-        
+
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Main_content" runat="server">
@@ -30,7 +30,7 @@
             </td>
             <td>:</td>
             <td>
-                <asp:TextBox runat="server" ID="Txt_Nama"/>&nbsp;
+                <asp:TextBox runat="server" ID="Txt_Nama" />&nbsp;
                 <asp:RequiredFieldValidator runat="server" ID="RFV_Txt_Nama"
                                             ControlToValidate="Txt_Nama"
                                             ErrorMessage="Nama harus di isi!"
@@ -44,11 +44,11 @@
             <td>:</td>
             <td>
                 <asp:TextBox runat="server" ID="Txt_Password"
-                    TextMode="Password"/>&nbsp;
+                             TextMode="Password" />&nbsp;
                 <asp:RequiredFieldValidator runat="server" ID="RFV_Txt_Password"
-                    ControlToValidate="Txt_Password"
-                    ErrorMessage="Nama Kategori harus di isi!"
-                    ValidationGroup="F_DaftarBaru" />
+                                            ControlToValidate="Txt_Password"
+                                            ErrorMessage="Nama Kategori harus di isi!"
+                                            ValidationGroup="F_DaftarBaru" />
             </td>
         </tr>
         <tr>
@@ -57,12 +57,12 @@
             </td>
             <td>:</td>
             <td>
-                	<asp:TextBox runat="server" ID="Txt_Password2" 
-                        TextMode="Password"/>&nbsp;
-                    <asp:RequiredFieldValidator runat="server" ID="RFV_Txt_Password2" 
-                        ControlToValidate="Txt_Password2"
-                        ErrorMessage="Nama Kategori harus di isi!"
-                        ValidationGroup="F_DaftarBaru"/>
+                <asp:TextBox runat="server" ID="Txt_Password2"
+                             TextMode="Password" />&nbsp;
+                <asp:RequiredFieldValidator runat="server" ID="RFV_Txt_Password2"
+                                            ControlToValidate="Txt_Password2"
+                                            ErrorMessage="Nama Kategori harus di isi!"
+                                            ValidationGroup="F_DaftarBaru" />
             </td>
         </tr>
         <tr>
@@ -71,11 +71,11 @@
             </td>
             <td>:</td>
             <td>
-                	<asp:TextBox runat="server" ID="Txt_Telephone" />&nbsp;
-                    <asp:RequiredFieldValidator runat="server" ID="RFV_Txt_Telephone" 
-                        ControlToValidate="Txt_Telephone"
-                        ErrorMessage="Nama Kategori harus di isi!"
-                        ValidationGroup="F_DaftarBaru"/>
+                <asp:TextBox runat="server" ID="Txt_Telephone" />&nbsp;
+                <asp:RequiredFieldValidator runat="server" ID="RFV_Txt_Telephone"
+                                            ControlToValidate="Txt_Telephone"
+                                            ErrorMessage="Nama Kategori harus di isi!"
+                                            ValidationGroup="F_DaftarBaru" />
             </td>
         </tr>
         <tr>
@@ -86,22 +86,22 @@
                 :
             </td>
             <td>
-                	<asp:TextBox runat="server" ID="Txt_KartuKredit" />&nbsp;
-                    <asp:RequiredFieldValidator runat="server" ID="RFV_Txt_KartuKredit" 
-                        ControlToValidate="Txt_KartuKredit"
-                        ErrorMessage="Nama Kategori harus di isi!"
-                        ValidationGroup="F_DaftarBaru"/>
+                <asp:TextBox runat="server" ID="Txt_KartuKredit" />&nbsp;
+                <asp:RequiredFieldValidator runat="server" ID="RFV_Txt_KartuKredit"
+                                            ControlToValidate="Txt_KartuKredit"
+                                            ErrorMessage="Nama Kategori harus di isi!"
+                                            ValidationGroup="F_DaftarBaru" />
             </td>
         </tr>
         <tr>
             <td colspan="3" align="center">
-               <asp:Button runat="server" ID="BtnSimpan" 
-                   Text="Simpan"
-                   ValidationGroup="F_ManajemenBarang" 
-                   CssClass="MainButton"/>&nbsp;
-                <asp:Button runat="server" ID="BtnBatal" 
-                    Text="Batal" 
-                    CssClass="MainButton"/>
+                <asp:Button runat="server" ID="BtnSimpan"
+                            Text="Simpan"
+                            ValidationGroup="F_ManajemenBarang"
+                            CssClass="MainButton" />&nbsp;
+                <asp:Button runat="server" ID="BtnBatal"
+                            Text="Batal"
+                            CssClass="MainButton" />
             </td>
         </tr>
     </table>
