@@ -1,221 +1,218 @@
 using System;
-using System.Collections.Generic;
-using System.IO;
+using System.Collections;
+using System.Configuration;
+using System.Data;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Xml.Linq;
 
 namespace KatalogOnline.Main_asp.DataBarang
 {
     public partial class ManajemenBarang : System.Web.UI.Page
     {
-        private string pesan = "";
-        private ClsKategori CKategori;
-        private ClsBarang CBarang;
+        ClsBarang _barang = new ClsBarang();
+        ClsKategori _kategori = new ClsKategori();
 
-        /* ----- [ MAIN SCRIPT ] ----- */
-        private void BindGrid_Kategori()
+        private void bersih()
         {
-            Grid_Barang.DataSource = CBarang.Tampil();
-            Grid_Barang.SelectedIndex = -1;
-            Grid_Barang.DataBind();
+            txtKdBarang.Text = "";
+            txtNmBarang.Text = "";
+            txtHrgBarang.Text = "";
+            txtInfoBarang.Text = "";
+            txtStok.Text = "";
+            txtCariNmBarang.Text = "";
+            BindDropDownKategori();
+            BindGrid();
         }
 
-        private void BindCmb_Kategori()
+        private void BindDropDownKategori()
         {
-            Cmb_Kategori.DataSource = CKategori.Tampil();
-            Cmb_Kategori.DataValueField = "PIdKat";
-            Cmb_Kategori.DataTextField = "PNmKat";
-            Cmb_Kategori.DataBind();
+            ddNmKategori.DataSource = _kategori.TampilData("");
+            ddNmKategori.DataValueField = "PIdKat";
+            ddNmKategori.DataTextField = "PNmKat";
+            ddNmKategori.DataBind();
 
-            Cmb_Kategori2.DataSource = CKategori.Tampil();
-            Cmb_Kategori2.DataValueField = "PIdKat";
-            Cmb_Kategori2.DataTextField = "PNmKat";
-            Cmb_Kategori2.DataBind();
+            ddCariKategori.DataSource = _kategori.TampilData("");
+            ddCariKategori.DataValueField = "PIdKat";
+            ddCariKategori.DataTextField = "PNmKat";
+            ddCariKategori.DataBind();
         }
 
-        private void Refresh_Page()
+        private void BindGrid()
         {
-            BindGrid_Kategori();
-            BindCmb_Kategori();
-
-            Txt_IdBarang.Text = CBarang.Autonumber();
-            Txt_NmBarang.Text = "";
-            Txt_HargaBarang.Text = "0";
-            Txt_InfoBarang.Text = "";
-            Txt_stock.Text = "0";
-
-            Txt_NmBarang.Focus();
+            gvBarang.DataSource = _barang.TampilData (txtCariNmBarang.Text, ddCariKategori.SelectedItem.Value.ToString());
+            gvBarang.SelectedIndex = -1;
+            gvBarang.DataBind();
         }
 
-        private void Pagination(GridViewPageEventArgs e)
-        {
-            Grid_Barang.PageIndex = e.NewPageIndex;
-            Grid_Barang.DataSource = CBarang.Tampil();
-            Grid_Barang.DataBind();
-            Grid_Barang.SelectedIndex = -1;
-        }
-
-        private void Pilih_data()
-        {
-            Txt_IdBarang.Text = Grid_Barang.SelectedDataKey["PKdBrg"].ToString();
-            Txt_NmBarang.Text = Grid_Barang.SelectedDataKey["PNmBrg"].ToString();
-            Txt_HargaBarang.Text = Grid_Barang.SelectedDataKey["PHrgBrg"].ToString();
-            Txt_InfoBarang.Text = Grid_Barang.SelectedDataKey["PInfoBrg"].ToString();
-            Txt_stock.Text = Grid_Barang.SelectedDataKey["PStokBrg"].ToString();
-        }
-
-        private void Simpan_data()
-        {
-            try
-            {
-                CBarang = new ClsBarang();
-                CBarang.PKdBrg = Txt_IdBarang.Text.Trim();
-                CBarang.PNmBrg = Txt_NmBarang.Text.Trim();
-                CBarang.PHrgBrg = Convert.ToInt32(Txt_HargaBarang.Text.Trim());
-                CBarang.PInfoBrg = Txt_InfoBarang.Text.Trim();
-                CBarang.PIdKat = Cmb_Kategori2.SelectedValue;
-                if (Fu_GbrBarang.HasFile)
-                {
-                    CBarang.PGbrBrg = Path.GetFileName(Fu_GbrBarang.PostedFile.FileName);
-                    Fu_GbrBarang.SaveAs(Server.MapPath(string.Format("~/User_files/Upload/{0}", CBarang.PGbrBrg)));
-                }
-                else
-                {
-                    CBarang.PGbrBrg = "default.jpg";
-                }
-                CBarang.PStokBrg = Convert.ToInt32(Txt_stock.Text.Trim());
-
-                if (CBarang.Simpan() > 0)
-                {
-                    pesan = string.Format("alert('{0}');", "Data telah berhasil ditambahan.");
-                }
-                else
-                {
-                    pesan = string.Format("alert('{0}');", "Data gagal ditambahan.");
-                }
-                ScriptManager.RegisterStartupScript(this, typeof(string), "Pesan Server", pesan, true);
-            }
-            catch (Exception ex)
-            {
-                pesan = string.Format("alert('{0}');", ex.Message.Replace("'", "\'"));
-                ScriptManager.RegisterStartupScript(this, typeof(string), "Pesan Server", pesan, true);
-
-                System.Diagnostics.Debug.WriteLine(ex.Message);
-            }
-            Refresh_Page();
-        }
-
-        private void Update_data()
-        {
-            try
-            {
-                CBarang = new ClsBarang();
-                CBarang.PKdBrg = Txt_IdBarang.Text.Trim();
-                CBarang.PNmBrg = Txt_NmBarang.Text.Trim();
-                CBarang.PHrgBrg = Convert.ToInt32(Txt_HargaBarang.Text.Trim());
-                CBarang.PInfoBrg = Txt_InfoBarang.Text.Trim();
-                CBarang.PIdKat = Cmb_Kategori2.SelectedValue;
-                if (Fu_GbrBarang.HasFile)
-                {
-                    CBarang.PGbrBrg = Path.GetFileName(Fu_GbrBarang.PostedFile.FileName);
-                    Fu_GbrBarang.SaveAs(Server.MapPath(string.Format("~/User_files/Upload/{0}", CBarang.PGbrBrg)));
-                }
-                else
-                {
-                    CBarang.PGbrBrg = "";
-                }
-                CBarang.PStokBrg = Convert.ToInt32(Txt_stock.Text.Trim());
-
-                if (CBarang.Ubah() > 0)
-                {
-                    pesan = string.Format("alert('{0}');", "Data telah berhasil diubah.");
-                }
-                else
-                {
-                    pesan = string.Format("alert('{0}');", "Data gagal diubah.");
-                }
-                ScriptManager.RegisterStartupScript(this, typeof(string), "Pesan Server", pesan, true);
-            }
-            catch (Exception ex)
-            {
-                pesan = string.Format("alert('{0}');", ex.Message.Replace("'", "\'"));
-                ScriptManager.RegisterStartupScript(this, typeof(string), "Pesan Server", pesan, true);
-            }
-            Refresh_Page();
-        }
-
-        private void Hapus_data()
-        {
-            try
-            {
-                CBarang = new ClsBarang();
-                CBarang.PKdBrg = Txt_IdBarang.Text.Trim();
-                if (CBarang.Hapus() > 0)
-                {
-                    pesan = string.Format("alert('{0}');", "Data telah berhasil dihapus.");
-                }
-                else
-                {
-                    pesan = string.Format("alert('{0}');", "Data gagal dihapus.");
-                }
-                ScriptManager.RegisterStartupScript(this, typeof(string), "Pesan Server", pesan, true);
-            }
-            catch (Exception ex)
-            {
-                pesan = string.Format("alert('{0}');", ex.Message.Replace("'", "\'"));
-                ScriptManager.RegisterStartupScript(this, typeof(string), "Pesan Server", pesan, true);
-            }
-            Refresh_Page();
-        }
-
-        private void Search_data()
-        {
-            /*
-            Grid_Kategori.DataSource = CKategori.Tampil(Txt_CariKategori.Text);
-            Grid_Kategori.SelectedIndex = -1;
-            Grid_Kategori.DataBind();*/
-        }
-        /* ----- [ AUTO GENERATE SCRIPT ] ----- */
         protected void Page_Load(object sender, EventArgs e)
         {
-            CBarang = new ClsBarang();
-            CKategori = new ClsKategori();
-            if (!IsPostBack)
+            if (!this.IsPostBack)
             {
-                Refresh_Page();
+                if (Session["Hak"].ToString() == "2")
+                {
+                    string pesan = "alert(\"Tidak Mempunyai Hak\");";
+                    ScriptManager.RegisterStartupScript
+                                        (this, typeof(string), "HAK AKSES", pesan, true);
+                    Response.AddHeader("REFRESH", "0;URL=../Default.aspx");
+                    return;
+                }
+                txtNmBarang.Focus();
+                bersih();
+                txtKdBarang.Text = _barang.Autonumber();
             }
         }
 
-        protected void Grid_Barang_SelectedIndexChanged(object sender, EventArgs e)
+        protected void btnSimpan_Click(object sender, EventArgs e)
         {
-            Pilih_data();
+            try
+            {
+                int _hasil;
+                _barang.PKdBrg = txtKdBarang.Text;
+                _barang.PNmBrg = txtNmBarang.Text;
+                _barang.PHrgBrg = System.Convert.ToDouble(txtHrgBarang.Text);
+                _barang.PInfoBrg = txtInfoBarang.Text;
+                string GbrBrg = "";
+                if (fuGbrBarang.HasFile == true)
+                {
+                    GbrBrg = System.IO.Path.GetFileName(fuGbrBarang.PostedFile.FileName);
+                    fuGbrBarang.SaveAs(Server.MapPath("~/Gambar/Upload/") + GbrBrg);
+                }
+                _barang.PGbrBrg = GbrBrg;
+                _barang.PStokBrg = System.Convert.ToInt32(txtStok.Text);
+                _barang.PIdKat = ddNmKategori.SelectedItem.Value.ToString();
+                _hasil = _barang.Simpan();
+                if (_hasil == 1)
+                {
+                    string pesan = "alert(\"Data Berhasil Disimpan\");";
+                    ScriptManager.RegisterStartupScript
+                                    (this, GetType(), "SIMPAN DATA", pesan, true);
+                    bersih();
+                    txtKdBarang.Text = _barang.Autonumber();
+                }
+                else
+                {
+                    string pesan = "alert(\"Data Tidak Berhasil Disimpan\");";
+                    ScriptManager.RegisterStartupScript
+                                        (this, GetType(), "SIMPAN DATA", pesan, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                string errorex = ex.Message;
+                string pesan = "alert(\"ERROR LAINNYA: '" + errorex + "\");";
+                ScriptManager.RegisterStartupScript
+                                    (this, GetType(), "SIMPAN DATA", pesan, true);
+            }
         }
 
-        protected void Grid_Barang_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        protected void btnUbah_Click(object sender, EventArgs e)
         {
-            Pagination(e);
+            try
+            {
+                int _hasil;
+                _barang.PKdBrg = txtKdBarang.Text;
+                _barang.PNmBrg = txtNmBarang.Text;
+                _barang.PHrgBrg = System.Convert.ToDouble(txtHrgBarang.Text);
+                _barang.PInfoBrg = txtInfoBarang.Text;
+                string GbrBrg = "";
+                if (fuGbrBarang.HasFile == true)
+                {
+                    GbrBrg = System.IO.Path.GetFileName(fuGbrBarang.PostedFile.FileName);
+                    fuGbrBarang.SaveAs(Server.MapPath("~/User_files/Upload/") + GbrBrg);
+                }
+                else
+                {
+                    GbrBrg = gvBarang.SelectedDataKey["PGbrBrg"].ToString();
+                }
+                _barang.PGbrBrg = GbrBrg;
+                _barang.PStokBrg = System.Convert.ToInt32(txtStok.Text);
+                _barang.PIdKat = ddNmKategori.SelectedItem.Value.ToString();
+                _hasil = _barang.Ubah();
+                if (_hasil == 1)
+                {
+                    string pesan = "alert(\"Data Berhasil Diubah\");";
+                    ScriptManager.RegisterStartupScript(this, GetType(), "UBAH DATA", pesan, true);
+                    bersih();
+                    txtKdBarang.Text = _barang.Autonumber();
+                }
+                else
+                {
+                    string pesan = "alert(\"Data Tidak Berhasil Diubah\");";
+                    ScriptManager.RegisterStartupScript (this, GetType(), "UBAH DATA", pesan, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                string errorex = ex.Message;
+                string pesan = "alert(\"ERROR LAINNYA: '" + errorex + "\");";
+                ScriptManager.RegisterStartupScript (this, GetType(), "UBAH DATA", pesan, true);
+            }
         }
 
-        protected void BtnSimpan_Click(object sender, EventArgs e)
+        protected void btnHapus_Click(object sender, EventArgs e)
         {
-            Simpan_data();
+            try
+            {
+                int _hasil;
+                _barang.PKdBrg = txtKdBarang.Text;
+                _hasil = _barang.Hapus();
+                if (_hasil == 1)
+                {
+                    string pesan = "alert(\"Data Berhasil Dihapus\");";
+                    ScriptManager.RegisterStartupScript (this, GetType(), "HAPUS DATA", pesan, true);
+                    bersih();
+                    txtKdBarang.Text = _barang.Autonumber();
+                }
+                else
+                {
+                    string pesan = "alert(\"Data Tidak Berhasil Dihapus\");";
+                    ScriptManager.RegisterStartupScript (this, GetType(), "HAPUS DATA", pesan, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                string errorex = ex.Message;
+                string pesan = "alert(\"ERROR LAINNYA: '" + errorex + "\");";
+                ScriptManager.RegisterStartupScript (this, GetType(), "HAPUS DATA", pesan, true);
+            }
+        }
+        protected void btnBatal_Click(object sender, EventArgs e)
+        {
+            bersih();
+            txtKdBarang.Text = _barang.Autonumber();
+        }
+        protected void gvBarang_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtKdBarang.Text = gvBarang.SelectedDataKey["PKdBrg"].ToString();
+            ddNmKategori.SelectedValue = gvBarang.SelectedDataKey["PIdKat"].ToString();
+            txtNmBarang.Text = gvBarang.SelectedRow.Cells[1].Text.ToString();
+            txtHrgBarang.Text = gvBarang.SelectedRow.Cells[2].Text.ToString();
+            txtInfoBarang.Text = gvBarang.SelectedRow.Cells[3].Text.ToString();
+            txtStok.Text = gvBarang.SelectedRow.Cells[4].Text.ToString();
         }
 
-        protected void BtnUbah_Click(object sender, EventArgs e)
+        protected void gvBarang_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            Update_data();
+            gvBarang.PageIndex = e.NewPageIndex;
+            gvBarang.DataSource = _barang.TampilData("", "");
+            gvBarang.DataBind();
+            gvBarang.SelectedIndex = -1;
         }
 
-        protected void BtnHapus_Click(object sender, EventArgs e)
+        protected void txtCariNmBarang_TextChanged(object sender, EventArgs e)
         {
-            Hapus_data();
+            BindGrid();
         }
 
-        protected void BtnBatal_Click(object sender, EventArgs e)
+        protected void ddCariKategori_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Refresh_Page();
+            BindGrid();
         }
     }
 }

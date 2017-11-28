@@ -1,150 +1,186 @@
 <%@ Page Title="" Language="C#" MasterPageFile="~/Master_page/KatalogOnline.Master" AutoEventWireup="true" CodeBehind="ManajemenBarang.aspx.cs" Inherits="KatalogOnline.Main_asp.DataBarang.ManajemenBarang" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="Main_head" runat="server">
     <style type="text/css">
-       
+        .style2 {
+            height : 40px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Main_content" runat="server">
-    <table id="Main-tables">
-        <tr>
-            <td class="style1" colspan="3">MANAJEMEN DATA BARANG</td>
-        </tr>
-        <tr>
-            <td>Cari Kategori</td>
-            <td>:</td>
-            <td>
-                <asp:DropDownList runat="server" id="Cmb_Kategori"></asp:DropDownList>
+    <table style="width:70%;" border="1">
+        <tr align="center">
+            <td colspan="3">
+                <center><h3><u>MANAJEMEN DATA BARANG</u></h3></center>
             </td>
         </tr>
         <tr>
-            <td class="style4">
+            <td>
+                Cari Kategori
+            </td>
+            <td>
+                :
+            </td>
+            <td>
+                <asp:DropDownList ID="ddCariKategori" runat="server"
+                                  onselectedindexchanged="ddCariKategori_SelectedIndexChanged">
+                </asp:DropDownList>
+            </td>
+        </tr>
+        <tr>
+            <td>
                 Cari Nama Barang
             </td>
-            <td>:</td>
             <td>
-                <asp:TextBox ID="Txt_CariNmBarang" runat="server" AutoPostBack="True"></asp:TextBox>
+                :
+            </td>
+            <td>
+                <asp:TextBox ID="txtCariNmBarang" runat="server" AutoPostBack="True"
+                             ontextchanged="txtCariNmBarang_TextChanged"></asp:TextBox>
             </td>
         </tr>
-        <tr align="center">
-            <td class="style2" colspan="3">
-                <asp:GridView runat="server" ID="Grid_Barang"
-                    AllowPaging="True" 
-                    PageSize="5" 
-                    EmptyDataText="GRID TIDAK ADA DATA" 
-                    AutoGenerateColumns="False"
-                    BackColor="White" 
-                    BorderColor="#CC9966" 
-                    BorderStyle="None" 
-                    BorderWidth="1px"
-                    CellPadding="4" DataKeyNames="PKdBrg,PNmBrg,PHrgBrg,PInfoBrg,PStokBrg" OnPageIndexChanging="Grid_Barang_PageIndexChanging" OnSelectedIndexChanged="Grid_Barang_SelectedIndexChanged">
+        <tr>
+            <td colspan="3">
+                <asp:GridView ID="gvBarang" runat="server" AllowPaging="True" PageSize="5"
+                              AutoGenerateColumns="False" CellPadding="4"
+                              DataKeyNames="PKdBrg,PIdKat,PGbrBrg"
+                              OnSelectedIndexChanged="gvBarang_SelectedIndexChanged"
+                              OnPageIndexChanging="gvBarang_PageIndexChanging"
+                              EmptyDataText="DATA BARANG TIDAK ADA" ForeColor="#333333" GridLines="None">
+                    <RowStyle BackColor="#EFF3FB" />
                     <Columns>
-                        <asp:ImageField 
-                            DataImageUrlFormatString="~/User_files/Upload/{0}" 
-                            HeaderText="Gambar" 
-                            DataImageUrlField="PGbrBrg">
+                        <asp:ImageField DataImageUrlField="PGbrBrg"
+                                        DataImageUrlFormatString="~/Gambar/Upload/{0}" HeaderText="Gambar">
                             <ControlStyle Height="100px" Width="100px" />
                         </asp:ImageField>
                         <asp:BoundField DataField="PNmBrg" HeaderText="Nama Barang" />
                         <asp:BoundField DataField="PHrgBrg" HeaderText="Harga Barang" />
                         <asp:BoundField DataField="PInfoBrg" HeaderText="Info Barang" />
                         <asp:BoundField DataField="PStokBrg" HeaderText="Stok" />
-                        <asp:CommandField SelectText="Pilih" ShowSelectButton="True" />
+                        <asp:CommandField ShowSelectButton="True" />
                     </Columns>
                     <FooterStyle BackColor="#507CD1" ForeColor="White" Font-Bold="True" />
                     <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
                     <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
                     <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                    <EditRowStyle BackColor="#2461BF" />
+                    <AlternatingRowStyle BackColor="White" />
                 </asp:GridView>
             </td>
         </tr>
         <tr>
-            <td class="style4">
+            <td>
                 Nama Kategori
             </td>
-            <td>:</td>
             <td>
-                <asp:DropDownList runat="server" ID="Cmb_Kategori2"></asp:DropDownList>
+                :
+            </td>
+            <td>
+                <asp:DropDownList ID="ddNmKategori" runat="server">
+                </asp:DropDownList>
             </td>
         </tr>
         <tr>
-            <td class="style4">
+            <td>
                 Kode Barang
             </td>
-           <td>:</td>
             <td>
-                <asp:TextBox runat="server" ID="Txt_IdBarang" />
-                <asp:RequiredFieldValidator runat="server" ID="RVF_Txt_IdBarang" ControlToValidate="Txt_IdBarang" ValidationGroup="F_ManajemenBarang" ErrorMessage="Id Barang harus di isi !" />
+                :
+            </td>
+            <td>
+                <asp:TextBox ID="txtKdBarang" runat="server" Width="192px"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"
+                                            ErrorMessage="Tidak Boleh Kosong" ControlToValidate="txtKdBarang"
+                                            ValidationGroup="BRG"></asp:RequiredFieldValidator>
             </td>
         </tr>
         <tr>
-            <td class="style4">
+            <td>
                 Nama Barang
             </td>
-            <td>:</td>
             <td>
-                <asp:TextBox runat="server" ID="Txt_NmBarang" />
-                <asp:RequiredFieldValidator runat="server" ID="RVF_Txt_NmBarang" ControlToValidate="Txt_NmBarang" ValidationGroup="F_ManajemenBarang" ErrorMessage="Nama barang harus di isi !" />
+                :
+            </td>
+            <td>
+                <asp:TextBox ID="txtNmBarang" runat="server" Width="228px"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server"
+                                            ErrorMessage="Tidak Boleh Kosong" ControlToValidate="txtNmBarang"
+                                            ValidationGroup="BRG"></asp:RequiredFieldValidator>
             </td>
         </tr>
         <tr>
-            <td class="style4">
+            <td>
                 Harga Barang
             </td>
-            <td>:</td>
             <td>
-                <asp:Label runat="server" ID="Lbl_Currency" Text="Rp." />&nbsp;
-                <asp:TextBox runat="server" ID="Txt_HargaBarang" Text="0" />
-                <asp:RequiredFieldValidator runat="server" ID="RVF_Txt_HargaBarang"  ControlToValidate="Txt_HargaBarang" ErrorMessage="Harga Barang harus di isi, Maksimal 7 Digit"/>
+                :
+            </td>
+            <td>
+                <asp:Label ID="Label2" runat="server" Text="Rp. "></asp:Label>
+                <asp:TextBox ID="txtHrgBarang" runat="server" Width="102px" MaxLength="7"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server"
+                                            ControlToValidate="txtHrgBarang" ErrorMessage="Tidak Boleh Kosong"
+                                            ValidationGroup="BRG" Display="Dynamic"></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server"
+                                                ControlToValidate="txtHrgBarang"
+                                                ErrorMessage="Masukkan Angka, Maksimal 7 Digit"
+                                                ValidationExpression="^[0-9]{1,7}$" ValidationGroup="BRG"
+                                                Display="Dynamic"></asp:RegularExpressionValidator>
             </td>
         </tr>
         <tr>
-            <td class="style4">
+            <td>
                 Info Barang
             </td>
-            <td>:</td>
             <td>
-                <asp:TextBox runat="server" ID="Txt_InfoBarang" />
-                <asp:RequiredFieldValidator runat="server" ID="RVF_Txt_InfoBarang" ControlToValidate="Txt_InfoBarang" ValidationGroup="F_ManajemenBarang" ErrorMessage="Informasi Barang harus di isi !" />
+                :
+            </td>
+            <td>
+                <asp:TextBox ID="txtInfoBarang" runat="server" Width="262px"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server"
+                                            ErrorMessage="Tidak Boleh Kosong" ControlToValidate="txtInfoBarang"
+                                            ValidationGroup="BRG"></asp:RequiredFieldValidator>
             </td>
         </tr>
         <tr>
-            <td class="style4">
+            <td>
                 Gambar Barang
             </td>
-            <td>:</td>
             <td>
-                <asp:FileUpload ID="Fu_GbrBarang" runat="server" />
+                :
+            </td>
+            <td>
+                <asp:FileUpload ID="fuGbrBarang" runat="server" />
             </td>
         </tr>
         <tr>
-            <td class="style4">
+            <td>
                 Stok Barang
             </td>
-            <td>:</td>
             <td>
-                <asp:TextBox runat="server" ID="Txt_stock" MaxLength="3" />
-                <asp:RegularExpressionValidator runat="server" ID="REV_Txt_stock" ControlToValidate="Txt_stock" ErrorMessage="Hanya dapat menerima angka 0 - 9, Maksimal 3 digit" ValidationExpression="^[0-9]{1,3}$" ValidationGroup="F_ManajemenBarang" />
-                <asp:RequiredFieldValidator runat="server" ID="RVF_Txt_stock" ControlToValidate="Txt_stock" ErrorMessage="Harap isi jumlah stock barang" ValidationGroup="F_ManajemenBarang" />
+                :
+            </td>
+            <td>
+                <asp:TextBox ID="txtStok" runat="server" Width="60px" MaxLength="3"></asp:TextBox>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server"
+                                                ControlToValidate="txtStok" Display="Dynamic"
+                                                ErrorMessage="Masukkan Angka, Maksimal 3 Digit" SetFocusOnError="True"
+                                                ValidationExpression="^[0-9]{1,3}$" ValidationGroup="BRG"></asp:RegularExpressionValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server"
+                                            ControlToValidate="txtStok" ErrorMessage="Tidak Boleh Kosong"
+                                            ValidationGroup="BRG" Display="Dynamic"></asp:RequiredFieldValidator>
             </td>
         </tr>
         <tr>
-            <td colspan="3">
-                        <asp:Button runat="server" ID="BtnSimpan" 
-                            Text="Simpan" 
-                            CssClass="Form_button"
-                            ValidationGroup="F_ManajemenBarang" OnClick="BtnSimpan_Click" />&nbsp;
-                        <asp:Button runat="server" ID="BtnUbah" 
-                            Text="Ubah" 
-                            CssClass="Form_button" 
-                            ValidationGroup="F_ManajemenBarang" OnClick="BtnUbah_Click"/>&nbsp;
-                        <asp:Button runat="server" ID="BtnHapus" 
-                            Text="Hapus" 
-                            CssClass="Form_button" OnClick="BtnHapus_Click" />&nbsp;
-                        <asp:Button runat="server" ID="BtnBatal" 
-                            Text="Batal" 
-                            CssClass="Form_button" OnClick="BtnBatal_Click"/>
+            <td colspan="3" class="style2">
+                <center>
+                    <asp:Button ID="btnSimpan" runat="server" onclick="btnSimpan_Click"
+                                Text="S I M P A N" ValidationGroup="SIMPAN" />
+                    &nbsp;<asp:Button ID="btnUbah" runat="server" onclick="btnUbah_Click"
+                                      Text="U B A H" />
+                    &nbsp;<asp:Button ID="btnHapus" runat="server" onclick="btnHapus_Click" Text="H A P U S" />
+                    &nbsp;<asp:Button ID="btnBatal" runat="server" Text="B A T A L" onclick="btnBatal_Click" />
+                </center>
             </td>
         </tr>
     </table>
-    </td>
 </asp:Content>
