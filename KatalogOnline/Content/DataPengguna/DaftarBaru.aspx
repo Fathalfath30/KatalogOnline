@@ -5,104 +5,116 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Main_content" runat="server">
-    <table id="MainForm" style="width:auto%;" border="0" cellpadding="2" cellspacing="0">
+    <table style="width:67%;" border="1">
         <tr>
             <td colspan="3">
                 <center><h3><u>DAFTAR BARU</u></h3></center>
             </td>
         </tr>
         <tr>
-            <td align="right">
-                <asp:Label runat="server" ID="Lbl_Username" Text="Username" />
-            </td>
-            <td>:</td>
             <td>
-                <asp:TextBox runat="server" ID="Txt_Username" />&nbsp;
-                <asp:RequiredFieldValidator runat="server" ID="RFV_Txt_Username"
-                                            ControlToValidate="Txt_Username"
-                                            ErrorMessage="Username harus di isi!"
-                                            ValidationGroup="F_DaftarBaru" />
+                <asp:Label ID="Label2" runat="server" Text="Username"></asp:Label>
+            </td>
+            <td>
+                :
+            </td>
+            <td>
+                <asp:TextBox ID="txtUsername" runat="server" Width="270px"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"
+                                            ControlToValidate="txtUsername" ErrorMessage="Tidak Boleh Kosong"
+                                            ValidationGroup="DAFTAR"></asp:RequiredFieldValidator>
             </td>
         </tr>
         <tr>
-            <td align="right">
-                <asp:Label ID="Lbl_Nama" runat="server" Text="Nama"></asp:Label>
-            </td>
-            <td>:</td>
             <td>
-                <asp:TextBox runat="server" ID="Txt_Nama" />&nbsp;
-                <asp:RequiredFieldValidator runat="server" ID="RFV_Txt_Nama"
-                                            ControlToValidate="Txt_Nama"
-                                            ErrorMessage="Nama harus di isi!"
-                                            ValidationGroup="F_DaftarBaru" />
+                <asp:Label ID="Label3" runat="server" Text="Nama"></asp:Label>
+            </td>
+            <td>
+                :
+            </td>
+            <td>
+                <asp:TextBox ID="txtNama" runat="server" Width="382px"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server"
+                                            ControlToValidate="txtNama" ErrorMessage="Tidak Boleh Kosong"
+                                            ValidationGroup="DAFTAR"></asp:RequiredFieldValidator>
             </td>
         </tr>
         <tr>
-            <td align="right">
-                <asp:Label ID="Lbl_Password" runat="server" Text="Password"></asp:Label>
-            </td>
-            <td>:</td>
             <td>
-                <asp:TextBox runat="server" ID="Txt_Password"
-                             TextMode="Password" />&nbsp;
-                <asp:RequiredFieldValidator runat="server" ID="RFV_Txt_Password"
-                                            ControlToValidate="Txt_Password"
-                                            ErrorMessage="Nama Kategori harus di isi!"
-                                            ValidationGroup="F_DaftarBaru" />
+                <asp:Label ID="Label4" runat="server" Text="Password"></asp:Label>
+            </td>
+            <td>
+                :
+            </td>
+            <td>
+                <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" Width="201px"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server"
+                                            ControlToValidate="txtPassword" ErrorMessage="Tidak Boleh Kosong"
+                                            ValidationGroup="DAFTAR"></asp:RequiredFieldValidator>
             </td>
         </tr>
         <tr>
-            <td align="right">
+            <td>
                 <asp:Label ID="Label5" runat="server" Text="Konfirmasi Password"></asp:Label>
             </td>
-            <td>:</td>
             <td>
-                <asp:TextBox runat="server" ID="Txt_Password2"
-                             TextMode="Password" />&nbsp;
-                <asp:RequiredFieldValidator runat="server" ID="RFV_Txt_Password2"
-                                            ControlToValidate="Txt_Password2"
-                                            ErrorMessage="Nama Kategori harus di isi!"
-                                            ValidationGroup="F_DaftarBaru" />
+                :
+            </td>
+            <td>
+                <asp:TextBox ID="txtKonfirmasi" runat="server" TextMode="Password"
+                             Width="199px"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server"
+                                            ControlToValidate="txtKonfirmasi" Display="Dynamic"
+                                            ErrorMessage="Tidak Boleh Kosong" ValidationGroup="DAFTAR"></asp:RequiredFieldValidator>
+                <asp:CompareValidator ID="CompareValidator1" runat="server"
+                                      ControlToCompare="txtPassword" ControlToValidate="txtKonfirmasi"
+                                      Display="Dynamic" ErrorMessage="Konfirmasi Password Tidak Sama Dengan Password"
+                                      ValidationGroup="DAFTAR"></asp:CompareValidator>
             </td>
         </tr>
         <tr>
-            <td align="right">
+            <td>
                 <asp:Label ID="Label6" runat="server" Text="Nomor Telepon"></asp:Label>
             </td>
-            <td>:</td>
             <td>
-                <asp:TextBox runat="server" ID="Txt_Telephone" />&nbsp;
-                <asp:RequiredFieldValidator runat="server" ID="RFV_Txt_Telephone"
-                                            ControlToValidate="Txt_Telephone"
-                                            ErrorMessage="Nama Kategori harus di isi!"
-                                            ValidationGroup="F_DaftarBaru" />
+                :
+            </td>
+            <td>
+                <asp:TextBox ID="txtNoTelp" runat="server" MaxLength="15"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server"
+                                            ControlToValidate="txtNoTelp" ErrorMessage="Tidak Boleh Kosong"
+                                            ValidationGroup="DAFTAR" Display="Dynamic"></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server"
+                                                ControlToValidate="txtNoTelp" Display="Dynamic"
+                                                ErrorMessage="Masukkan Angka, Maksimal 15 Digit"
+                                                ValidationExpression="^[0-9]{1,15}$" ValidationGroup="DAFTAR"></asp:RegularExpressionValidator>
             </td>
         </tr>
         <tr>
-            <td align="right">
+            <td>
                 <asp:Label ID="Label7" runat="server" Text="Nomor Kartu Kredit"></asp:Label>
             </td>
             <td>
                 :
             </td>
             <td>
-                <asp:TextBox runat="server" ID="Txt_KartuKredit" />&nbsp;
-                <asp:RequiredFieldValidator runat="server" ID="RFV_Txt_KartuKredit"
-                                            ControlToValidate="Txt_KartuKredit"
-                                            ErrorMessage="Nama Kategori harus di isi!"
-                                            ValidationGroup="F_DaftarBaru" />
+                <asp:TextBox ID="txtNoKartu" runat="server" Width="239px" MaxLength="16"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server"
+                                            ControlToValidate="txtNoKartu" ErrorMessage="Tidak Boleh Kosong"
+                                            ValidationGroup="DAFTAR" Display="Dynamic"></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server"
+                                                ControlToValidate="txtNoKartu" Display="Dynamic"
+                                                ErrorMessage="Masukkan Angka, Maksimal 16 Digit"
+                                                ValidationExpression="^[0-9]{1,16}$" ValidationGroup="DAFTAR"></asp:RegularExpressionValidator>
             </td>
         </tr>
         <tr>
-            <td colspan="3" align="center">
-                <asp:Button runat="server" ID="BtnSimpan"
-                            Text="Simpan"
-                            ValidationGroup="F_ManajemenBarang"
-                            CssClass="MainButton" />&nbsp;
-                <asp:Button runat="server" ID="BtnBatal"
-                            Text="Batal"
-                            CssClass="MainButton" />
+            <td colspan="3">
+                <asp:Button ID="btnDaftar" runat="server" onclick="btnDaftar_Click"
+                            Text="D A F T A R" ValidationGroup="DAFTAR" />
+                &nbsp;<asp:Button ID="btnBatal" runat="server" onclick="btnBatal_Click" Text="B A T A L" />
             </td>
         </tr>
     </table>
 </asp:Content>
+
