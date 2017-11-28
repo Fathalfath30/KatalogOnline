@@ -1,8 +1,14 @@
 using System;
+using System.Data;
+using System.Configuration;
+using System.Linq;
 using System.Web;
-using System.Web.Services;
-using System.Web.Services.Protocols;
-using System.ComponentModel;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.HtmlControls;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Xml.Linq;
 using System.Data.SqlClient;
 using System.Web.Configuration;
 using System.Collections.Generic;
@@ -14,42 +20,25 @@ namespace KatalogOnline
         private string FKdPesan;
         private DateTime FTglPesan;
         private string FUserName;
-        private string StrConn = WebConfigurationManager.ConnectionStrings["CS_webonline"].ConnectionString;
+        string StrConn =
+        WebConfigurationManager.ConnectionStrings["CS_webonline"].ConnectionString;
 
         public string PKdPesan
         {
-            get
-            {
-                return FKdPesan;
-            }
-            set
-            {
-                FKdPesan = value;
-            }
+            get { return FKdPesan; }
+            set { FKdPesan = value; }
         }
 
         public DateTime PTglPesan
         {
-            get
-            {
-                return FTglPesan;
-            }
-            set
-            {
-                FTglPesan = value;
-            }
+            get { return FTglPesan; }
+            set { FTglPesan = value; }
         }
 
         public string PUserName
         {
-            get
-            {
-                return FUserName;
-            }
-            set
-            {
-                FUserName = value;
-            }
+            get { return FUserName; }
+            set { FUserName = value; }
         }
 
         public string Autonumber()
@@ -71,18 +60,19 @@ namespace KatalogOnline
                     NilaiAuto = "PSN" + "0000".Substring(NilaiAwal.Length) + NilaiAwal;
                 }
                 else
-                { NilaiAuto = "PSN0001"; }
+                {
+                    NilaiAuto = "PSN0001";
+                }
                 return NilaiAuto;
             }
-
         }
 
         public int Simpan()
         {
             using (SqlConnection conn = new SqlConnection(StrConn))
             {
-                String Query =
-                   "INSERT INTO pesan(KdPesan,TglPesan,UserName)VALUES(@1,@2,@3)";
+                string Query =
+                "INSERT INTO pesan(KdPesan,TglPesan,UserName) VALUES(@1,@2,@3)";
                 SqlCommand cmd = new SqlCommand(Query, conn);
                 cmd.Parameters.AddWithValue("@1", FKdPesan);
                 cmd.Parameters.AddWithValue("@2", FTglPesan);
@@ -91,7 +81,6 @@ namespace KatalogOnline
                 conn.Open();
                 Hasil = cmd.ExecuteNonQuery();
                 return Hasil;
-
             }
         }
     }
