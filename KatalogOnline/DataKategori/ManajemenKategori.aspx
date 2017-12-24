@@ -1,24 +1,26 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master/KatalogOnline.Master" AutoEventWireup="true" CodeBehind="ManajemenKategori.aspx.cs" Inherits="KatalogOnline.DataKategori.ManajemenKategori" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="Main_head" runat="server">
     <style type="text/css">
         .MainButton {
-            width:100px;
+            width: 100px;
         }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Main_content" runat="server">
     <table cellpading="10">
         <tr>
-            <td colspan="3"> 
+            <td colspan="3">
                 <h4><u>MANAJEMEN KATEGORI</u></h4>
             </td>
         </tr>
         <tr>
             <td>Cari Berdasarkan Nama kategori</td>
             <td>:</td>
-            <td><asp:TextBox runat="server" 
-                ID="Tbox_cari" 
-                AutoPostBack="true" />
+            <td>
+                <asp:TextBox runat="server"
+                    ID="Tbox_cari"
+                    AutoPostBack="true" />
             </td>
         </tr>
         <tr>
@@ -32,8 +34,8 @@
             <td>Id Kategori</td>
             <td>:</td>
             <td>
-                <asp:TextBox runat="server" 
-                ID="Tbox_id_kategori" />
+                <asp:TextBox runat="server"
+                    ID="Tbox_id_kategori" />
                 <asp:RequiredFieldValidator runat="server"
                     ControlToValidate="Tbox_id_kategori"
                     ValidationGroup="FrmEntry"
@@ -45,7 +47,7 @@
             <td>:</td>
             <td>
                 <asp:TextBox runat="server"
-                ID="Tbox_nama_kategori" />
+                    ID="Tbox_nama_kategori" />
                 <asp:RequiredFieldValidator runat="server"
                     ControlToValidate="Tbox_nama_kategori"
                     ValidationGroup="FrmEntry"
@@ -57,7 +59,7 @@
             <td>:</td>
             <td>
                 <asp:TextBox runat="server"
-                ID="Tbox_info_kategori" />
+                    ID="Tbox_info_kategori" />
                 <asp:RequiredFieldValidator runat="server"
                     ControlToValidate="Tbox_info_kategori"
                     ValidationGroup="Frmentry"
@@ -67,7 +69,7 @@
         <tr>
             <td colspan="3">
                 <asp:Button runat="server"
-                    ID="Btn_simpan" 
+                    ID="Btn_simpan"
                     CssClass="MainButton"
                     Text="Simpan"
                     ValidationGroup="FrmEntry" />
