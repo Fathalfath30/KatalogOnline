@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace KatalogOnline.master {
+namespace KatalogOnline.Master {
 
 
     public partial class KatalogOnline {

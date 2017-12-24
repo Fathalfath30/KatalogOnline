@@ -7,13 +7,13 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{76263649-8653-40FB-A267-0DDEC686B845}</ProjectGuid>
+    <ProjectGuid>{7625BB00-26CC-4444-B8A7-A1CA019FE351}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>KatalogOnline</RootNamespace>
     <AssemblyName>KatalogOnline</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -39,12 +39,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Net" />
-    <Reference Include="System.Web.DynamicData" />
-    <Reference Include="System.Web.Entity" />
-    <Reference Include="System.Web.ApplicationServices" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
@@ -59,36 +53,10 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Themes\Background\BF1.mp4" />
-    <Content Include="App_Themes\Background\BF1.png" />
-    <Content Include="App_Themes\Background\BF4.jpg" />
-    <Content Include="App_Assets\Banner\G1.jpg" />
-    <Content Include="App_Assets\Banner\G2.jpg" />
-    <Content Include="App_Assets\Banner\G3.jpg" />
-    <Content Include="App_Assets\Banner\G4.jpg" />
-    <Content Include="App_Assets\Images\calender.png" />
-    <Content Include="App_Assets\Images\EXCEL.PNG" />
-    <Content Include="App_Assets\Images\HTML.png" />
-    <Content Include="App_Assets\Images\PDF.png" />
-    <Content Include="App_Assets\Images\RTF.png" />
-    <Content Include="App_Assets\Images\WORD.PNG" />
-    <Content Include="App_Data\db_1512501667.mdf" />
-    <Content Include="App_Data\db_1512501667_log.ldf">
-      <DependentUpon>db_1512501667.mdf</DependentUpon>
-    </Content>
-    <Content Include="App_Themes\MyTheme\appTheme.css" />
     <Content Include="default.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Code\ClsBarang.cs" />
-    <Compile Include="App_Code\ClsDetilPesan.cs" />
-    <Compile Include="App_Code\ClsItemKereta.cs" />
-    <Compile Include="App_Code\ClsKategori.cs" />
-    <Compile Include="App_Code\ClsKereta.cs" />
-    <Compile Include="App_Code\ClsPengguna.cs" />
-    <Compile Include="App_Code\ClsPesan.cs" />
-    <Compile Include="App_Code\ClsPromo.cs" />
     <Compile Include="default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -96,27 +64,25 @@
     <Compile Include="default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="App_Code\Model.cs" />
+    <Compile Include="App_Code\KatalogOnlineModel.cs" />
+    <Compile Include="Master\KatalogOnline.Master.cs">
+      <DependentUpon>KatalogOnline.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master\KatalogOnline.Master.designer.cs">
+      <DependentUpon>KatalogOnline.Master</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="packages.config" />
-    <Content Include="ApplicationInsights.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Content Include="Master\KatalogOnline.Master" />
     <Content Include="App_Code\ClassDiag_1512501667.cd" />
-    <Content Include="App_Themes\Background\BF1.ogv" />
-    <Content Include="App_Themes\Background\BF1.webm" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
-    <Content Include="Web.sitemap" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_GlobalResources\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -131,9 +97,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>48457</DevelopmentServerPort>
+          <DevelopmentServerPort>1656</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:40817/</IISUrl>
+          <IISUrl>http://localhost:1656/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
@@ -143,11 +109,6 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
-  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
-    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
-    <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
-  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
