@@ -13,6 +13,69 @@ namespace KatalogOnline.DataPromo {
     public partial class TambahPromo {
         
         /// <summary>
+        /// Tbox_cari_nama_barang control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Tbox_cari_nama_barang;
+        
+        /// <summary>
+        /// Gview_tambah_promo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView Gview_tambah_promo;
+        
+        /// <summary>
+        /// Tbox_kode_barang control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Tbox_kode_barang;
+        
+        /// <summary>
+        /// Tbox_nama_barang control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Tbox_nama_barang;
+        
+        /// <summary>
+        /// Tbox_harga_barang control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Tbox_harga_barang;
+        
+        /// <summary>
+        /// Tbox_info_promo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Tbox_info_promo;
+        
+        /// <summary>
+        /// Tbox_harga_promo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Tbox_harga_promo;
+        
+        /// <summary>
         /// Btn_simpan control.
         /// </summary>
         /// <remarks>

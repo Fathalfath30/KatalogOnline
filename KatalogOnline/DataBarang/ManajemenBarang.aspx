@@ -88,7 +88,7 @@
                     Display="Dynamic"
                     ErrorMessage="Harga barang harus di isi!" />
                 <asp:RegularExpressionValidator runat="server"
-                    ControlToValidate="Tbox_stock_barang"
+                    ControlToValidate="Tbox_harga_barang"
                     ValidationGroup="FrmEntry"
                     ValidationExpression="^[0-9]{1,7}$"
                     Display="Dynamic"
