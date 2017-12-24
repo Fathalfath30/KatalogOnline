@@ -39,64 +39,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net40\Microsoft.AI.Agent.Intercept.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net40\Microsoft.AI.DependencyCollector.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net40\Microsoft.AI.PerfCounterCollector.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net40\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.AI.Web, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net40\Microsoft.AI.Web.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.AI.WindowsServer, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net40\Microsoft.AI.WindowsServer.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.ApplicationInsights, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net40\Microsoft.ApplicationInsights.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.Diagnostics.Tracing.EventSource, Version=1.1.28.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Diagnostics.Tracing.EventSource.Redist.1.1.28\lib\net40\Microsoft.Diagnostics.Tracing.EventSource.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.Threading.Tasks, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.Threading.Tasks.Extensions, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.Threading.Tasks.Extensions.Desktop, Version=1.0.168.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.Desktop.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.IO, Version=2.6.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Bcl.1.1.10\lib\net40\System.IO.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System.Net" />
-    <Reference Include="System.Runtime, Version=2.6.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Bcl.1.1.10\lib\net40\System.Runtime.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Threading.Tasks, Version=2.6.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Bcl.1.1.10\lib\net40\System.Threading.Tasks.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -134,20 +78,7 @@
     </Content>
     <Content Include="App_Themes\MyTheme\appTheme.css" />
     <Content Include="default.aspx" />
-    <Content Include="Content\DataBarang\ManajemenBarang.aspx" />
-    <Content Include="Content\DataBelanja\InfoProduk.aspx" />
-    <Content Include="Content\DataBelanja\KeranjangBelanja.aspx" />
-    <Content Include="Content\DataBelanja\KonfirmasiPembelian.aspx" />
-    <Content Include="Content\DataKategori\ManajemenKategori.aspx" />
-    <Content Include="Content\DataPengguna\DaftarBaru.aspx" />
-    <Content Include="Content\DataPengguna\ManajemenPengguna.aspx" />
-    <Content Include="Content\DataPromo\ModifikasiPromo.aspx" />
-    <Content Include="Content\DataPromo\TambahPromo.aspx" />
-    <Content Include="User_files\Upload\default.jpg" />
     <Content Include="Web.config" />
-    <Content Include="Xml\AdRotator.xml">
-      <SubType>Designer</SubType>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Code\ClsBarang.cs" />
@@ -165,76 +96,7 @@
     <Compile Include="default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Content\DataBarang\ManajemenBarang.aspx.cs">
-      <DependentUpon>ManajemenBarang.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Content\DataBarang\ManajemenBarang.aspx.designer.cs">
-      <DependentUpon>ManajemenBarang.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Content\DataBelanja\InfoProduk.aspx.cs">
-      <DependentUpon>InfoProduk.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Content\DataBelanja\InfoProduk.aspx.designer.cs">
-      <DependentUpon>InfoProduk.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Content\DataBelanja\KeranjangBelanja.aspx.cs">
-      <DependentUpon>KeranjangBelanja.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Content\DataBelanja\KeranjangBelanja.aspx.designer.cs">
-      <DependentUpon>KeranjangBelanja.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Content\DataBelanja\KonfirmasiPembelian.aspx.cs">
-      <DependentUpon>KonfirmasiPembelian.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Content\DataBelanja\KonfirmasiPembelian.aspx.designer.cs">
-      <DependentUpon>KonfirmasiPembelian.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Content\DataKategori\ManajemenKategori.aspx.cs">
-      <DependentUpon>ManajemenKategori.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Content\DataKategori\ManajemenKategori.aspx.designer.cs">
-      <DependentUpon>ManajemenKategori.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Content\DataPengguna\DaftarBaru.aspx.cs">
-      <DependentUpon>DaftarBaru.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Content\DataPengguna\DaftarBaru.aspx.designer.cs">
-      <DependentUpon>DaftarBaru.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Content\DataPengguna\ManajemenPengguna.aspx.cs">
-      <DependentUpon>ManajemenPengguna.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Content\DataPengguna\ManajemenPengguna.aspx.designer.cs">
-      <DependentUpon>ManajemenPengguna.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Content\DataPromo\ModifikasiPromo.aspx.cs">
-      <DependentUpon>ModifikasiPromo.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Content\DataPromo\ModifikasiPromo.aspx.designer.cs">
-      <DependentUpon>ModifikasiPromo.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Content\DataPromo\TambahPromo.aspx.cs">
-      <DependentUpon>TambahPromo.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Content\DataPromo\TambahPromo.aspx.designer.cs">
-      <DependentUpon>TambahPromo.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Master_page\KatalogOnline.Master.cs">
-      <DependentUpon>KatalogOnline.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Master_page\KatalogOnline.Master.designer.cs">
-      <DependentUpon>KatalogOnline.Master</DependentUpon>
-    </Compile>
+    <Compile Include="App_Code\Model.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -243,7 +105,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="App_Code\ClassDiag_1512501667.cd" />
-    <Content Include="Master_page\KatalogOnline.Master" />
     <Content Include="App_Themes\Background\BF1.ogv" />
     <Content Include="App_Themes\Background\BF1.webm" />
     <None Include="Web.Debug.config">
@@ -256,11 +117,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_GlobalResources\" />
-    <Folder Include="Main_script\DataBarang\" />
-    <Folder Include="Main_script\DataBelanja\" />
-    <Folder Include="Main_script\DataKategori\" />
-    <Folder Include="Main_script\DataPengguna\" />
-    <Folder Include="Main_script\DataPromo\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

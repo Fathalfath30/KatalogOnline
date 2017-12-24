@@ -13,75 +13,30 @@ using System.Data.SqlClient;
 using System.Web.Configuration;
 using System.Collections.Generic;
 
-namespace KatalogOnline
-{
-    public class ClsPesan
-    {
-        private string FKdPesan;
-        private DateTime FTglPesan;
-        private string FUserName;
-        string StrConn =
-        WebConfigurationManager.ConnectionStrings["CS_webonline"].ConnectionString;
-
-        public string PKdPesan
-        {
-            get { return FKdPesan; }
-            set { FKdPesan = value; }
+namespace KatalogOnline {
+    public class ClsPesan : Model<ClsPesan> {
+        public string auto_number() {
+            throw new NotImplementedException();
         }
 
-        public DateTime PTglPesan
-        {
-            get { return FTglPesan; }
-            set { FTglPesan = value; }
+        public List<ClsPesan> cari_data() {
+            throw new NotImplementedException();
         }
 
-        public string PUserName
-        {
-            get { return FUserName; }
-            set { FUserName = value; }
+        public bool hapus_data() {
+            throw new NotImplementedException();
         }
 
-        public string Autonumber()
-        {
-            using (SqlConnection conn = new SqlConnection(StrConn))
-            {
-                string NilaiAwal, NilaiAsli, NilaiAuto;
-                int NilaiTambah;
-                string Query = "SELECT KdPesan FROM pesan ORDER BY KdPesan DESC";
-                SqlCommand cmd = new SqlCommand(Query, conn);
-                SqlDataReader reader;
-                conn.Open();
-                reader = cmd.ExecuteReader();
-                if (reader.Read())
-                {
-                    NilaiAsli = reader["KdPesan"].ToString();
-                    NilaiTambah = System.Convert.ToInt32(NilaiAsli.Substring(3, 4)) + 1;
-                    NilaiAwal = System.Convert.ToString(NilaiTambah);
-                    NilaiAuto = "PSN" + "0000".Substring(NilaiAwal.Length) + NilaiAwal;
-                }
-                else
-                {
-                    NilaiAuto = "PSN0001";
-                }
-                return NilaiAuto;
-            }
+        public bool tambah_data() {
+            throw new NotImplementedException();
         }
 
-        public int Simpan()
-        {
-            using (SqlConnection conn = new SqlConnection(StrConn))
-            {
-                string Query =
-                "INSERT INTO pesan(KdPesan,TglPesan,UserName) VALUES(@1,@2,@3)";
-                SqlCommand cmd = new SqlCommand(Query, conn);
-                cmd.Parameters.AddWithValue("@1", FKdPesan);
-                cmd.Parameters.AddWithValue("@2", FTglPesan);
-                cmd.Parameters.AddWithValue("@3", FUserName);
-                int Hasil = 0;
-                conn.Open();
-                Hasil = cmd.ExecuteNonQuery();
-                return Hasil;
-            }
+        public List<ClsPesan> tampil_data() {
+            throw new NotImplementedException();
+        }
+
+        public bool update_data() {
+            throw new NotImplementedException();
         }
     }
 }

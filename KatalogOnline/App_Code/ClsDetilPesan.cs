@@ -13,58 +13,30 @@ using System.Data.SqlClient;
 using System.Web.Configuration;
 using System.Collections.Generic;
 
-namespace KatalogOnline
-{
-    public class ClsDetilPesan
-    {
-        private string FKdPesan;
-        private string FKdBrg;
-        private int FJmlPesan;
-        private double FHrgPesan;
-        string StrConn =
-        WebConfigurationManager.ConnectionStrings["CS_webonline"].ConnectionString;
-
-        public string PKdPesan
-        {
-            get { return FKdPesan; }
-            set { FKdPesan = value; }
+namespace KatalogOnline {
+    public class ClsDetilPesan : Model<ClsDetilPesan> {
+        public string auto_number() {
+            throw new NotImplementedException();
         }
 
-        public string PKdBrg
-        {
-            get { return FKdBrg; }
-            set { FKdBrg = value; }
+        public List<ClsDetilPesan> cari_data() {
+            throw new NotImplementedException();
         }
 
-        public int PJmlPesan
-        {
-            get { return FJmlPesan; }
-            set { FJmlPesan = value; }
+        public bool hapus_data() {
+            throw new NotImplementedException();
         }
 
-        public double PHrgPesan
-        {
-            get { return FHrgPesan; }
-            set { FHrgPesan = value; }
+        public bool tambah_data() {
+            throw new NotImplementedException();
         }
 
-        public int Simpan()
-        {
-            using (SqlConnection conn = new SqlConnection(StrConn))
-            {
-                string Query =
-             "INSERT INTO detil_pesan(KdPesan,KdBrg,HrgPesan,JmlPesan) " +
-                "VALUES(@1,@2,@3,@4)";
-                SqlCommand cmd = new SqlCommand(Query, conn);
-                cmd.Parameters.AddWithValue("@1", FKdPesan);
-                cmd.Parameters.AddWithValue("@2", FKdBrg);
-                cmd.Parameters.AddWithValue("@3", FHrgPesan);
-                cmd.Parameters.AddWithValue("@4", FJmlPesan);
-                int Hasil = 0;
-                conn.Open();
-                Hasil = cmd.ExecuteNonQuery();
-                return Hasil;
-            }
+        public List<ClsDetilPesan> tampil_data() {
+            throw new NotImplementedException();
+        }
+
+        public bool update_data() {
+            throw new NotImplementedException();
         }
     }
 }

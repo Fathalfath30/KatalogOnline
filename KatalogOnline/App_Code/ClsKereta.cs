@@ -1,5 +1,6 @@
 using System;
 using System.Data;
+using System.Data.SqlClient;
 using System.Configuration;
 using System.Linq;
 using System.Web;
@@ -12,55 +13,30 @@ using System.Xml.Linq;
 using System.Web.Configuration;
 using System.Collections.Generic;
 
-namespace KatalogOnline
-{
-    public class ClsKereta
-    {
-        private List<ClsItemKereta> PKeretaBelanja;
-
-        public ClsKereta()
-        {
-            PKeretaBelanja = new List<ClsItemKereta>();
+namespace KatalogOnline {
+    public class ClsKereta : Model<ClsKereta> {
+        public string auto_number() {
+            throw new NotImplementedException();
         }
 
-        public List<ClsItemKereta> GetItems()
-        {
-            return PKeretaBelanja;
+        public List<ClsKereta> cari_data() {
+            throw new NotImplementedException();
         }
 
-        public void AddItems(string _KdBrg, string _NmBrg, double _HrgBrg, int _JmlBrg)
-        {
-            bool barang_ada = false;
-            foreach (ClsItemKereta item in PKeretaBelanja)
-            {
-                if (item.PKdBrg == _KdBrg)
-                {
-                    item.PJmlBrg += 1;
-                    barang_ada = true;
-                }
-            }
-            if (!barang_ada)
-            {
-                var item = new ClsItemKereta(_KdBrg, _NmBrg, _HrgBrg, 1);
-                PKeretaBelanja.Add(item);
-            }
+        public bool hapus_data() {
+            throw new NotImplementedException();
         }
 
-        public void UpdateQty(int _Index, int _JmlBrg)
-        {
-            ClsItemKereta item;
-            item = PKeretaBelanja[_Index];
-            item.PJmlBrg = _JmlBrg;
+        public bool tambah_data() {
+            throw new NotImplementedException();
         }
 
-        public void DeleteItem(int _Index)
-        {
-            PKeretaBelanja.RemoveAt(_Index);
+        public List<ClsKereta> tampil_data() {
+            throw new NotImplementedException();
         }
 
-        public int Counter
-        {
-            get { return PKeretaBelanja.Count(); }
+        public bool update_data() {
+            throw new NotImplementedException();
         }
     }
 }
