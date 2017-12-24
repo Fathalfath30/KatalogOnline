@@ -19,19 +19,19 @@ namespace KatalogOnline {
             throw new NotImplementedException();
         }
 
+        public List<ClsKereta> cari_data() {
+            throw new NotImplementedException();
+        }
+
         public bool hapus_data() {
             throw new NotImplementedException();
         }
 
+        public bool tambah_data() {
+            throw new NotImplementedException();
+        }
+
         public List<ClsKereta> tampil_data() {
-            throw new NotImplementedException();
-        }
-
-        public List<ClsKereta> tampil_data(string keyword1) {
-            throw new NotImplementedException();
-        }
-
-        public List<ClsKereta> tampil_data(string keyword1, string keyworkd2) {
             throw new NotImplementedException();
         }
 

@@ -19,7 +19,7 @@ namespace KatalogOnline {
             throw new NotImplementedException();
         }
 
-        public List<ClsPengguna> cari_data() {
+        public List<ClsPromo> cari_data() {
             throw new NotImplementedException();
         }
 
@@ -27,23 +27,15 @@ namespace KatalogOnline {
             throw new NotImplementedException();
         }
 
-        public List<ClsPengguna> tampil_data() {
+        public bool tambah_data() {
             throw new NotImplementedException();
         }
 
-        public List<ClsPromo> tampil_data(string keyword1) {
-            throw new NotImplementedException();
-        }
-
-        public List<ClsPromo> tampil_data(string keyword1, string keyworkd2) {
+        public List<ClsPromo> tampil_data() {
             throw new NotImplementedException();
         }
 
         public bool update_data() {
-            throw new NotImplementedException();
-        }
-
-        List<ClsPromo> Model<ClsPromo>.tampil_data() {
             throw new NotImplementedException();
         }
     }
