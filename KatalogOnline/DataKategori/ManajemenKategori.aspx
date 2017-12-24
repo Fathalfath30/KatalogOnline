@@ -39,6 +39,7 @@
                 <asp:RequiredFieldValidator runat="server"
                     ControlToValidate="Tbox_id_kategori"
                     ValidationGroup="FrmEntry"
+                    Display="Dynamic"
                     ErrorMessage="Id kategori harus di isi" />
             </td>
         </tr>
@@ -51,6 +52,7 @@
                 <asp:RequiredFieldValidator runat="server"
                     ControlToValidate="Tbox_nama_kategori"
                     ValidationGroup="FrmEntry"
+                    Display="Dynamic"
                     ErrorMessage="Nama kategori harus di isi !" />
             </td>
         </tr>
@@ -63,6 +65,7 @@
                 <asp:RequiredFieldValidator runat="server"
                     ControlToValidate="Tbox_info_kategori"
                     ValidationGroup="Frmentry"
+                    Display="Dynamic"
                     ErrorMessage="Info kategori harus di isi !" />
             </td>
         </tr>
