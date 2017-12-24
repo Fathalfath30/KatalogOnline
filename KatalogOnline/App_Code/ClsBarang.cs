@@ -21,6 +21,14 @@ namespace KatalogOnline {
             throw new NotImplementedException();
         }
 
+        public List<ClsBarang> tampil_data(string keyword1) {
+            throw new NotImplementedException();
+        }
+
+        public List<ClsBarang> tampil_data(string keyword1, string keyworkd2) {
+            throw new NotImplementedException();
+        }
+
         public bool update_data() {
             throw new NotImplementedException();
         }

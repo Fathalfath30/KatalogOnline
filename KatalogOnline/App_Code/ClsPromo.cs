@@ -14,7 +14,7 @@ using System.Web.Configuration;
 using System.Collections.Generic;
 
 namespace KatalogOnline {
-    public class ClsPengguna : Model<ClsPengguna> {
+    public class ClsPromo : Model<ClsPromo> {
         public string auto_number() {
             throw new NotImplementedException();
         }
@@ -31,7 +31,19 @@ namespace KatalogOnline {
             throw new NotImplementedException();
         }
 
+        public List<ClsPromo> tampil_data(string keyword1) {
+            throw new NotImplementedException();
+        }
+
+        public List<ClsPromo> tampil_data(string keyword1, string keyworkd2) {
+            throw new NotImplementedException();
+        }
+
         public bool update_data() {
+            throw new NotImplementedException();
+        }
+
+        List<ClsPromo> Model<ClsPromo>.tampil_data() {
             throw new NotImplementedException();
         }
     }
