@@ -18,8 +18,8 @@ namespace KatalogOnline {
         string auto_number();
         bool hapus_data();
         List<T> tampil_data();
-        List<T> tampil_data(string keyword1);
-        List<T> tampil_data(string keyword1, string keyworkd2);
+        List<T> cari_data();
         bool update_data();
+        bool tambah_data();
     }
 }
