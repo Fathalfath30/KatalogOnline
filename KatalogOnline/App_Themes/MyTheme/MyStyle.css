@@ -29,6 +29,7 @@ body {
     color          : #353B3A;
     background     : #D5ECE7 url(../../Gambar/Style/bg.png);
     letter-spacing : 0.025em;
+    font-family:Arial;
 }
 
 body, input {
