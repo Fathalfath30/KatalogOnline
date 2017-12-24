@@ -11,58 +11,129 @@
     <table cellpading="10">
         <tr>
             <td colspan="3">
-                <h4><u>MANAJEMEN KATEGORI</u></h4>
+                <h4><u>MANAJEMEN BARANG</u></h4>
             </td>
         </tr>
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>Cari Kategori</td>
+            <td>:</td>
+            <td>
+                <asp:DropDownList runat="server"
+                    ID="Dlist_cari_kategori">
+                </asp:DropDownList>
+            </td>
         </tr>
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>Cari Nama Barang</td>
+            <td>:</td>
+            <td>
+                <asp:TextBox runat="server"
+                    ID="Tbox_cari_nama"
+                    AutoPostBack="true" />
+            </td>
         </tr>
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td colspan="3">
+                <asp:GridView runat="server"
+                    ID="Gview_manajemen_barang">
+                </asp:GridView>
+            </td>
         </tr>
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>Nama Kategori</td>
+            <td>:</td>
+            <td>
+                <asp:DropDownList runat="server"
+                    ID="Dlist_nama_kategori">
+                </asp:DropDownList>
+            </td>
         </tr>
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>Kode Barang</td>
+            <td>:</td>
+            <td>
+                <asp:TextBox runat="server"
+                    ID="Tbox_kode_barang" />
+                <asp:RequiredFieldValidator runat="server"
+                    ControlToValidate="Tbox_kode_barang"
+                    ValidationGroup="FrmEntry"
+                    Display="Dynamic"
+                    ErrorMessage="Kode barang harus di isi!" />
+            </td>
         </tr>
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>Nama Barang</td>
+            <td>:</td>
+            <td>
+                <asp:TextBox runat="server"
+                    ID="Tbox_nama_barang" />
+                <asp:RequiredFieldValidator runat="server"
+                    ControlToValidate="Tbox_nama_barang"
+                    ValidationGroup="FrmEntry"
+                    Display="Dynamic"
+                    ErrorMessage="Nama barang harus di isi!" />
+            </td>
         </tr>
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>Harga Barang</td>
+            <td>:</td>
+            <td>
+                <asp:Label runat="server" 
+                    Text="Rp." />
+                <asp:TextBox runat="server" 
+                    ID="Tbox_harga_barang"/>
+                <asp:RequiredFieldValidator runat="server"
+                    ControlToValidate="Tbox_harga_barang"
+                    ValidationGroup="FrmEntry"
+                    Display="Dynamic"
+                    ErrorMessage="Harga barang harus di isi!" />
+                <asp:RegularExpressionValidator runat="server"
+                    ControlToValidate="Tbox_stock_barang"
+                    ValidationGroup="FrmEntry"
+                    ValidationExpression="^[0-9]{1,7}$"
+                    Display="Dynamic"
+                    ErrorMessage="Hanya Menerima angka 0-9 sebanyak 7 karakter" />
+            </td>
         </tr>
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>Info Barang</td>
+            <td>:</td>
+            <td>
+                <asp:TextBox runat="server"
+                    ID="Tbox_info_barang" />
+                <asp:RequiredFieldValidator runat="server"
+                    ControlToValidate="Tbox_info_barang"
+                    ValidationGroup="FrmEntry"
+                    Display="Dynamic"
+                    ErrorMessage="Info barang harus di isi!" />
+            </td>
         </tr>
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>Gambar Barang</td>
+            <td>:</td>
+            <td>
+                <asp:FileUpload runat="server"
+                    ID="Fupload_foto_barang" />
+            </td>
         </tr>
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>Stock Barang</td>
+            <td>:</td>
+            <td>
+                <asp:TextBox runat="server"
+                    ID="Tbox_stock_barang" />
+                <asp:RequiredFieldValidator runat="server"
+                    ControlToValidate="Tbox_stock_barang"
+                    ValidationGroup="FrmEntry"
+                    Display="Dynamic"
+                    ErrorMessage="Stock barang harus di isi!" />
+                <asp:RegularExpressionValidator runat="server"
+                    ControlToValidate="Tbox_stock_barang"
+                    ValidationGroup="FrmEntry"
+                    ValidationExpression="^[0-9]{1,3}$"
+                    Display="Dynamic"
+                    ErrorMessage="Hanya Menerima angka 0-9 sebanyak 3 karakter" />
+            </td>
         </tr>
         <tr>
             <td colspan="3">
