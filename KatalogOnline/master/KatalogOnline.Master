@@ -1,20 +1,51 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="KatalogOnline.master.cs" Inherits="KatalogOnline.Master.KatalogOnline" %>
-
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
-    <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>
+    <title>Katalog Online</title>
+    <asp:ContentPlaceHolder ID="Main_head" runat="server"></asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-        
-        </asp:ContentPlaceHolder>
-    </div>
+        <div id="wrapper">
+            <div id="header">
+                <div id="Logo"></div>
+            </div>
+            <div id="menu">
+                <ul>
+                    <li class="first"></li>
+                    <li></li>
+                    <li></li>
+                    <li class="last"></li>
+                </ul>
+                <br class="clearfix" />
+            </div>
+        </div>
+        <div id="wrapper2">
+            <div id="splash"></div>
+            <div id="page">
+                <div id="content">
+                    <table style="width:100%;">
+                        <tr>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <center>
+                                    <div>
+                                        <asp:ContentPlaceHolder ID="Main_content" runat="server">
+                                        </asp:ContentPlaceHolder>
+                                    </div>
+                                </center>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div> 
     </form>
+    <div id="footer">
+        Copyright 2017 - Fathalfath30 All Right Reserved.
+    </div>
 </body>
 </html>
