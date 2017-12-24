@@ -53,10 +53,19 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Themes\MyTheme\MyStyle.css" />
     <Content Include="default.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Code\ClsBarang.cs" />
+    <Compile Include="App_Code\ClsDetilPesan.cs" />
+    <Compile Include="App_Code\ClsItemKereta.cs" />
+    <Compile Include="App_Code\ClsKategori.cs" />
+    <Compile Include="App_Code\ClsKereta.cs" />
+    <Compile Include="App_Code\ClsPengguna.cs" />
+    <Compile Include="App_Code\ClsPesan.cs" />
+    <Compile Include="App_Code\ClsPromo.cs" />
     <Compile Include="default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -84,6 +93,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
