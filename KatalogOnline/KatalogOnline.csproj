@@ -134,20 +134,7 @@
     </Content>
     <Content Include="App_Themes\MyTheme\appTheme.css" />
     <Content Include="default.aspx" />
-    <Content Include="Content\DataBarang\ManajemenBarang.aspx" />
-    <Content Include="Content\DataBelanja\InfoProduk.aspx" />
-    <Content Include="Content\DataBelanja\KeranjangBelanja.aspx" />
-    <Content Include="Content\DataBelanja\KonfirmasiPembelian.aspx" />
-    <Content Include="Content\DataKategori\ManajemenKategori.aspx" />
-    <Content Include="Content\DataPengguna\DaftarBaru.aspx" />
-    <Content Include="Content\DataPengguna\ManajemenPengguna.aspx" />
-    <Content Include="Content\DataPromo\ModifikasiPromo.aspx" />
-    <Content Include="Content\DataPromo\TambahPromo.aspx" />
-    <Content Include="User_files\Upload\default.jpg" />
     <Content Include="Web.config" />
-    <Content Include="Xml\AdRotator.xml">
-      <SubType>Designer</SubType>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Code\ClsBarang.cs" />
@@ -165,76 +152,6 @@
     <Compile Include="default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Content\DataBarang\ManajemenBarang.aspx.cs">
-      <DependentUpon>ManajemenBarang.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Content\DataBarang\ManajemenBarang.aspx.designer.cs">
-      <DependentUpon>ManajemenBarang.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Content\DataBelanja\InfoProduk.aspx.cs">
-      <DependentUpon>InfoProduk.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Content\DataBelanja\InfoProduk.aspx.designer.cs">
-      <DependentUpon>InfoProduk.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Content\DataBelanja\KeranjangBelanja.aspx.cs">
-      <DependentUpon>KeranjangBelanja.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Content\DataBelanja\KeranjangBelanja.aspx.designer.cs">
-      <DependentUpon>KeranjangBelanja.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Content\DataBelanja\KonfirmasiPembelian.aspx.cs">
-      <DependentUpon>KonfirmasiPembelian.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Content\DataBelanja\KonfirmasiPembelian.aspx.designer.cs">
-      <DependentUpon>KonfirmasiPembelian.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Content\DataKategori\ManajemenKategori.aspx.cs">
-      <DependentUpon>ManajemenKategori.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Content\DataKategori\ManajemenKategori.aspx.designer.cs">
-      <DependentUpon>ManajemenKategori.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Content\DataPengguna\DaftarBaru.aspx.cs">
-      <DependentUpon>DaftarBaru.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Content\DataPengguna\DaftarBaru.aspx.designer.cs">
-      <DependentUpon>DaftarBaru.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Content\DataPengguna\ManajemenPengguna.aspx.cs">
-      <DependentUpon>ManajemenPengguna.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Content\DataPengguna\ManajemenPengguna.aspx.designer.cs">
-      <DependentUpon>ManajemenPengguna.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Content\DataPromo\ModifikasiPromo.aspx.cs">
-      <DependentUpon>ModifikasiPromo.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Content\DataPromo\ModifikasiPromo.aspx.designer.cs">
-      <DependentUpon>ModifikasiPromo.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Content\DataPromo\TambahPromo.aspx.cs">
-      <DependentUpon>TambahPromo.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Content\DataPromo\TambahPromo.aspx.designer.cs">
-      <DependentUpon>TambahPromo.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Master_page\KatalogOnline.Master.cs">
-      <DependentUpon>KatalogOnline.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Master_page\KatalogOnline.Master.designer.cs">
-      <DependentUpon>KatalogOnline.Master</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -243,7 +160,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="App_Code\ClassDiag_1512501667.cd" />
-    <Content Include="Master_page\KatalogOnline.Master" />
     <Content Include="App_Themes\Background\BF1.ogv" />
     <Content Include="App_Themes\Background\BF1.webm" />
     <None Include="Web.Debug.config">
@@ -256,11 +172,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_GlobalResources\" />
-    <Folder Include="Main_script\DataBarang\" />
-    <Folder Include="Main_script\DataBelanja\" />
-    <Folder Include="Main_script\DataKategori\" />
-    <Folder Include="Main_script\DataPengguna\" />
-    <Folder Include="Main_script\DataPromo\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
