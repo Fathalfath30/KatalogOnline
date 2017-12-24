@@ -15,11 +15,25 @@ using System.Collections.Generic;
 
 
 namespace KatalogOnline {
-    public class ClsKategori {
+    public class ClsKategori : Model<ClsKategori> {
         public string auto_number() {
-            string anumber = "";
-            
-            return anumber;
+            throw new NotImplementedException();
+        }
+
+        public List<ClsKategori> cari_data() {
+            throw new NotImplementedException();
+        }
+
+        public bool hapus_data() {
+            throw new NotImplementedException();
+        }
+
+        public List<ClsKategori> tampil_data() {
+            throw new NotImplementedException();
+        }
+
+        public bool update_data() {
+            throw new NotImplementedException();
         }
     }
 }

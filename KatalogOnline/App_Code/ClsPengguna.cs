@@ -13,10 +13,26 @@ using System.Data.SqlClient;
 using System.Web.Configuration;
 using System.Collections.Generic;
 
-namespace KatalogOnline
-{
-    public class ClsPengguna
-    {
+namespace KatalogOnline {
+    public class ClsPengguna : Model<ClsPengguna> {
+        public string auto_number() {
+            throw new NotImplementedException();
+        }
 
+        public List<ClsPengguna> cari_data() {
+            throw new NotImplementedException();
+        }
+
+        public bool hapus_data() {
+            throw new NotImplementedException();
+        }
+
+        public List<ClsPengguna> tampil_data() {
+            throw new NotImplementedException();
+        }
+
+        public bool update_data() {
+            throw new NotImplementedException();
+        }
     }
 }
