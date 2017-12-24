@@ -14,75 +14,28 @@
             </td>
         </tr>
         <tr>
-            <td></td>
+            <td>Cari Nama Barang</td>
             <td>:</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>:</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>:</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>:</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>:</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>:</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>:</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>:</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>:</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>:</td>
-            <td></td>
+            <td>
+                <asp:TextBox runat="server"
+                    ID="Tbox_cari_nama_barang"
+                    AutoPostBack="true" />
+            </td>
         </tr>
         <tr>
             <td colspan="3">
-                <asp:Button runat="server"
-                    ID="Btn_simpan"
-                    CssClass="MainButton"
-                    Text="Simpan"
-                    ValidationGroup="FrmEntry" />
-                <asp:Button runat="server"
-                    ID="Btn_ubah"
-                    CssClass="MainButton"
-                    Text="Ubah"
-                    ValidationGroup="FrmEntry" />
-                <asp:Button runat="server"
-                    ID="Btn_hapus"
-                    CssClass="MainButton"
-                    Text="Hapus" />
-                <asp:Button runat="server"
-                    ID="Btn_batal"
-                    CssClass="MainButton"
-                    Text="Batal" />
+                <asp:GridView runat="server" 
+                    ID="Gview_modifikasi_promo">
+                </asp:GridView>
+            </td>
+        </tr>
+        <tr>
+            <td>Barang Promosi</td>
+            <td>:</td>
+            <td>
+                <asp:DetailsView runat="server"
+                    ID="Dview_barang_promosi">
+                </asp:DetailsView>
             </td>
         </tr>
     </table>

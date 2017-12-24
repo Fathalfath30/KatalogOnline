@@ -13,39 +13,30 @@ namespace KatalogOnline.DataPromo {
     public partial class ModifikasiPromo {
         
         /// <summary>
-        /// Btn_simpan control.
+        /// Tbox_cari_nama_barang control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Btn_simpan;
+        protected global::System.Web.UI.WebControls.TextBox Tbox_cari_nama_barang;
         
         /// <summary>
-        /// Btn_ubah control.
+        /// Gview_modifikasi_promo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Btn_ubah;
+        protected global::System.Web.UI.WebControls.GridView Gview_modifikasi_promo;
         
         /// <summary>
-        /// Btn_hapus control.
+        /// Dview_barang_promosi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Btn_hapus;
-        
-        /// <summary>
-        /// Btn_batal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Btn_batal;
+        protected global::System.Web.UI.WebControls.DetailsView Dview_barang_promosi;
     }
 }
