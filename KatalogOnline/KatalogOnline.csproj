@@ -54,7 +54,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Themes\MyTheme\MyStyle.css" />
+    <Content Include="DataBarang\ManajemenBarang.aspx" />
+    <Content Include="DataBelanja\InfoProduk.aspx" />
+    <Content Include="DataBelanja\KeranjangBelanja.aspx" />
+    <Content Include="DataBelanja\KonfirmasiPembelian.aspx" />
+    <Content Include="DataKategori\ManajemenKategori.aspx" />
+    <Content Include="DataPengguna\DaftarBaru.aspx" />
+    <Content Include="DataPengguna\ManajemenPengguna.aspx" />
+    <Content Include="DataPromo\ModifikasiPromo.aspx" />
+    <Content Include="DataPromo\TambahPromo.aspx" />
     <Content Include="default.aspx" />
+    <Content Include="Login.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -66,6 +76,69 @@
     <Compile Include="App_Code\ClsPengguna.cs" />
     <Compile Include="App_Code\ClsPesan.cs" />
     <Compile Include="App_Code\ClsPromo.cs" />
+    <Compile Include="DataBarang\ManajemenBarang.aspx.cs">
+      <DependentUpon>ManajemenBarang.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DataBarang\ManajemenBarang.aspx.designer.cs">
+      <DependentUpon>ManajemenBarang.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DataBelanja\InfoProduk.aspx.cs">
+      <DependentUpon>InfoProduk.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DataBelanja\InfoProduk.aspx.designer.cs">
+      <DependentUpon>InfoProduk.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DataBelanja\KeranjangBelanja.aspx.cs">
+      <DependentUpon>KeranjangBelanja.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DataBelanja\KeranjangBelanja.aspx.designer.cs">
+      <DependentUpon>KeranjangBelanja.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DataBelanja\KonfirmasiPembelian.aspx.cs">
+      <DependentUpon>KonfirmasiPembelian.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DataBelanja\KonfirmasiPembelian.aspx.designer.cs">
+      <DependentUpon>KonfirmasiPembelian.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DataKategori\ManajemenKategori.aspx.cs">
+      <DependentUpon>ManajemenKategori.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DataKategori\ManajemenKategori.aspx.designer.cs">
+      <DependentUpon>ManajemenKategori.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DataPengguna\DaftarBaru.aspx.cs">
+      <DependentUpon>DaftarBaru.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DataPengguna\DaftarBaru.aspx.designer.cs">
+      <DependentUpon>DaftarBaru.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DataPengguna\ManajemenPengguna.aspx.cs">
+      <DependentUpon>ManajemenPengguna.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DataPengguna\ManajemenPengguna.aspx.designer.cs">
+      <DependentUpon>ManajemenPengguna.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DataPromo\ModifikasiPromo.aspx.cs">
+      <DependentUpon>ModifikasiPromo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DataPromo\ModifikasiPromo.aspx.designer.cs">
+      <DependentUpon>ModifikasiPromo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DataPromo\TambahPromo.aspx.cs">
+      <DependentUpon>TambahPromo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DataPromo\TambahPromo.aspx.designer.cs">
+      <DependentUpon>TambahPromo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -74,6 +147,13 @@
       <DependentUpon>default.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Code\KatalogOnlineModel.cs" />
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Master\KatalogOnline.Master.cs">
       <DependentUpon>KatalogOnline.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -92,6 +172,7 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Content Include="Web.sitemap" />
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>

@@ -9,14 +9,32 @@
     <form id="form1" runat="server">
         <div id="wrapper">
             <div id="header">
-                <div id="Logo"></div>
+                <div id="Logo">
+                    <h1><asp:LinkButton runat="server">MY WEBSITE</asp:LinkButton></h1>
+                </div>
             </div>
             <div id="menu">
                 <ul>
-                    <li class="first"></li>
-                    <li></li>
-                    <li></li>
-                    <li class="last"></li>
+                    <li class="first">
+                        <asp:LinkButton ID="Lbtn_home" runat="server" PostBackUrl="~/default.aspx" Font-Bold="True">
+                            HOME
+                        </asp:LinkButton>
+                    </li>
+                    <li>
+                        <asp:LinkButton ID="Lbtn_login" runat="server" PostBackUrl="~/Login.aspx" Font-Bold="True">
+                            LOGIN
+                        </asp:LinkButton>
+                    </li>
+                    <li>
+                        <asp:LinkButton ID="Lbtn_kereta" runat="server" PostBackUrl="~/DataBelanja/KeranjangBelanja.aspx" Font-Bold="True">
+                            LIST KERETA BELANJA
+                        </asp:LinkButton>
+                    </li>
+                    <li class="last">
+                        <asp:LinkButton ID="Lbtn_username" runat="server" PostBackUrl="~/Login.aspx" Font-Bold="True">
+                            USERNAME
+                        </asp:LinkButton>
+                    </li>
                 </ul>
                 <br class="clearfix" />
             </div>
