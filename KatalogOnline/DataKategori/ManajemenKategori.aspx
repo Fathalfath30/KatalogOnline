@@ -8,7 +8,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Main_content" runat="server">
-    <table cellpading="10">
+    <table>
         <tr>
             <td colspan="3">
                 <h4><u>MANAJEMEN KATEGORI</u></h4>
@@ -26,7 +26,28 @@
         <tr>
             <td colspan="3">
                 <asp:GridView runat="server"
-                    ID="Gview_kategori">
+                    ID="Gview_kategori"
+                    DataKeyNames="PIdKategori, PNmKategori, PInfoKategori"
+                    AutoGenerateColumns="False"
+                    PageSize="5"
+                    AllowPaging="true"
+                    HeaderStyle-BackColor="#3399ff"
+                    HeaderStyle-Font-Bold="true"
+                    CellPadding="10"
+                    CellSpacing="5"
+                    EmptyDataText="Tidak ada data yang dapat ditampilkan" 
+                    Font-Names="Arial" 
+                    OnPageIndexChanging="Gview_kategori_PageIndexChanging" 
+                    OnSelectedIndexChanged="Gview_kategori_SelectedIndexChanged" >
+                    <Columns>
+                        <asp:BoundField DataField="PIdKategori" HeaderText="Id kategori" />
+                        <asp:BoundField DataField="PNmkategori" HeaderText="Nama Kategori" />
+                        <asp:BoundField DataField="PInfoKategori" HeaderText="Info Kategori" />
+                        <asp:CommandField SelectText="Pilih" ShowSelectButton="true" />
+                    </Columns>
+
+                    <HeaderStyle BackColor="#3399FF" Font-Bold="True"></HeaderStyle>
+                    <SelectedRowStyle BackColor="#66CCFF" />
                 </asp:GridView>
             </td>
         </tr>
@@ -75,19 +96,23 @@
                     ID="Btn_simpan"
                     CssClass="MainButton"
                     Text="Simpan"
+                    OnClick="Btn_simpan_Click"
                     ValidationGroup="FrmEntry" />
                 <asp:Button runat="server"
                     ID="Btn_ubah"
                     CssClass="MainButton"
                     Text="Ubah"
+                    OnClick="Btn_ubah_Click"
                     ValidationGroup="FrmEntry" />
                 <asp:Button runat="server"
                     ID="Btn_hapus"
                     CssClass="MainButton"
+                    OnClick="Btn_hapus_Click"
                     Text="Hapus" />
                 <asp:Button runat="server"
                     ID="Btn_batal"
                     CssClass="MainButton"
+                    OnClick="Btn_batal_Click"
                     Text="Batal" />
             </td>
         </tr>
