@@ -13,6 +13,78 @@ namespace KatalogOnline.DataPengguna {
     public partial class DaftarBaru {
         
         /// <summary>
+        /// Tbox_cari_nama_pengguna control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Tbox_cari_nama_pengguna;
+        
+        /// <summary>
+        /// Dlist_manajemen_pengguna control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataList Dlist_manajemen_pengguna;
+        
+        /// <summary>
+        /// Tbox_username control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Tbox_username;
+        
+        /// <summary>
+        /// Tbox_password control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Tbox_password;
+        
+        /// <summary>
+        /// Tbox_konfirmasi_password control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Tbox_konfirmasi_password;
+        
+        /// <summary>
+        /// Tbox_nama control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Tbox_nama;
+        
+        /// <summary>
+        /// Tbox_notelp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Tbox_notelp;
+        
+        /// <summary>
+        /// Tbox_kredit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Tbox_kredit;
+        
+        /// <summary>
         /// Btn_simpan control.
         /// </summary>
         /// <remarks>

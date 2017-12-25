@@ -14,54 +14,116 @@
             </td>
         </tr>
         <tr>
-            <td></td>
+            <td>Cari Nama Pengguna</td>
             <td>:</td>
-            <td></td>
+            <td>
+                <asp:TextBox runat="server"
+                    ID="Tbox_cari_nama_pengguna"
+                    AutoPostBack="true" />
+            </td>
         </tr>
         <tr>
-            <td></td>
-            <td>:</td>
-            <td></td>
+            <td colspan="3">
+                <asp:DataList runat="server"
+                    ID="Dlist_manajemen_pengguna">
+                </asp:DataList>
+            </td>
         </tr>
         <tr>
-            <td></td>
+            <td>Username</td>
             <td>:</td>
-            <td></td>
+            <td>
+                <asp:TextBox runat="server"
+                    ID="Tbox_username" />
+                <asp:RequiredFieldValidator runat="server"
+                    ControlToValidate="Tbox_username"
+                    ValidationGroup="FrmEntry"
+                    Display="Dynamic"
+                    ErrorMessage="Username harus di isi!" />
+            </td>
         </tr>
         <tr>
-            <td></td>
+            <td>Password</td>
             <td>:</td>
-            <td></td>
+            <td>
+                <asp:TextBox runat="server" 
+                    ID="Tbox_password"
+                    TextMode="Password" />
+                <asp:RequiredFieldValidator runat="server"
+                    ControlToValidate="Tbox_password"
+                    ValidationGroup="FrmEntry"
+                    Display="Dynamic"
+                    ErrorMessage="Password harus di isi!" />
+            </td>
         </tr>
         <tr>
-            <td></td>
+            <td>Konfirmasi Password</td>
             <td>:</td>
-            <td></td>
+            <td>
+                <asp:TextBox runat="server"
+                    ID="Tbox_konfirmasi_password"
+                    TextMode="Password" />
+                <asp:RequiredFieldValidator runat="server"
+                    ControlToValidate="Tbox_konfirmasi_password"
+                    ValidationGroup="FrmEntry"
+                    Display="Dynamic"
+                    ErrorMessage="Konfirmasi password harus di isi!" />
+                <asp:CompareValidator runat="server"
+                    ControlToValidate="Tbox_konfirmasi_password"
+                    ControlToCompare="Tbox_password"
+                    ValidationGroup="Frmentry"
+                    Display="Dynamic"
+                    ErrorMessage="Sesuaikan dengan password sebelumnya" />
+            </td>
         </tr>
         <tr>
-            <td></td>
+            <td>Nama</td>
             <td>:</td>
-            <td></td>
+            <td>
+                <asp:TextBox runat="server"
+                    ID="Tbox_nama" />
+                <asp:RequiredFieldValidator runat="server"
+                    ControlToValidate="Tbox_nama"
+                    ValidationGroup="FrmEntry"
+                    Display="Dynamic"
+                    ErrorMessage="Nama harus di isi!" />
+            </td>
         </tr>
         <tr>
-            <td></td>
+            <td>No Telepon</td>
             <td>:</td>
-            <td></td>
+            <td>
+                <asp:TextBox runat="server"
+                    ID="Tbox_notelp" />
+                <asp:RequiredFieldValidator runat="server"
+                    ControlToValidate="Tbox_notelp"
+                    ValidationGroup="FrmEntry"
+                    Display="Dynamic"
+                    ErrorMessage="Nomor telephone harus di isi" />
+                <asp:RegularExpressionValidator runat="server"
+                    ControlToValidate="Tbox_notelp"
+                    ValidationExpression="^[0-9]{1,13}$"
+                    Display="Dynamic"
+                    ErrorMessage="Hanya Menerima angka 0-9 sebanyak 13 karakter" />
+            </td>
         </tr>
         <tr>
-            <td></td>
+            <td>Nomor Kartu Kredit</td>
             <td>:</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>:</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>:</td>
-            <td></td>
+            <td>
+                <asp:TextBox runat="server"
+                    ID="Tbox_kredit" />
+                <asp:RequiredFieldValidator runat="server" 
+                    ControlToValidate="Tbox_kredit"
+                    ValidationGroup="FrmEntry"
+                    Display="Dynamic"
+                    ErrorMessage="Nomor kartu kredit harus di isi !"/>
+                <asp:RegularExpressionValidator runat="server"
+                    ControlToValidate="Tbox_kredit"
+                    ValidationExpression="^[0-9]{1,13}$"
+                    Display="Dynamic"
+                    ErrorMessage="Hanya Menerima angka 0-9 sebanyak 13 karakter" />
+            </td>
         </tr>
         <tr>
             <td colspan="3">
