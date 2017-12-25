@@ -45,7 +45,28 @@
                 <div id="content">
                     <table style="width:100%;">
                         <tr>
-                            <td></td>
+                            <td>
+                                <asp:Menu runat="server" 
+                                    ID="MainMenu" 
+                                    BackColor="#FFFBD6" 
+                                    DataSourceID="Dsource_sitemap" 
+                                    Orientation="Horizontal"
+                                    StaticDisplayLevels="2"
+                                    Font-Bold="true"
+                                    Font-Names="Arial" 
+                                    Font-Size="1.045em" 
+                                    ForeColor="#990000" 
+                                    StaticSubMenuIndent="20px">
+                                    <DynamicHoverStyle BackColor="#990000" ForeColor="White" />
+                                    <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+                                    <DynamicMenuStyle BackColor="#FFFBD6" />
+                                    <DynamicSelectedStyle BackColor="#FFCC66" />
+                                    <StaticHoverStyle BackColor="#990000" ForeColor="White" />
+                                    <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+                                    <StaticSelectedStyle BackColor="#FFCC66" />
+                                </asp:Menu>
+                                <asp:SiteMapDataSource ID="Dsource_sitemap" runat="server" />
+                            </td>
                         </tr>
                         <tr>
                             <td>

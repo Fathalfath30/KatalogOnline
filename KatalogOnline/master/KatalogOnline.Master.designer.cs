@@ -67,6 +67,24 @@ namespace KatalogOnline.Master {
         protected global::System.Web.UI.WebControls.LinkButton Lbtn_username;
         
         /// <summary>
+        /// MainMenu control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Menu MainMenu;
+        
+        /// <summary>
+        /// Dsource_sitemap control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SiteMapDataSource Dsource_sitemap;
+        
+        /// <summary>
         /// Main_content control.
         /// </summary>
         /// <remarks>
