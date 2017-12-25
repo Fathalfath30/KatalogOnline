@@ -21,8 +21,6 @@ CREATE TABLE kategori (
 	InfoKat VARCHAR(50),
 	PRIMARY KEY(IdKat)
 );
-
--- Data Kategori :
 INSERT INTO kategori (IdKat, NmKat, InfoKat) VALUES
 ('CAT0001','Kategori A','Info Kategori A'),
 ('CAT0002','Kategori B','Info Kategori B'),
@@ -39,9 +37,21 @@ CREATE TABLE barang (
 	InfoBrg VARCHAR(50),
 	GbrBrg VARCHAR(50),
 	IdKat VARCHAR(7) NOT NULL,
+	StokBrg NUMERIC(3,0),
 	PRIMARY KEY(KdBrg)
 	-- ,CONSTRAINT FK_KATEGORI_1 FOREIGN KEY(IdKat) REFERENCES kategori(IdKat) ON UPDATE CASCADE ON DELETE CASCADE
 );
+INSERT INTO barang (KdBrg, NmBrg, HrgBrg, InfoBrg, GbrBrg, IdKat, StokBrg) VALUES
+('BRG0001', 'Barang A', 25000, 'Info Barang A', 'default.jpg', 'CAT0001', 10),
+('BRG0002', 'Barang B', 23000, 'Info Barang B', 'default.jpg', 'CAT0001', 10),
+('BRG0003', 'Barang C', 21000, 'Info Barang C', 'default.jpg', 'CAT0002', 10),
+('BRG0004', 'Barang D', 15000, 'Info Barang D', 'default.jpg', 'CAT0002', 10),
+('BRG0005', 'Barang E', 55000, 'Info Barang E', 'default.jpg', 'CAT0003', 10),
+('BRG0006', 'Barang F', 25000, 'Info Barang F', 'default.jpg', 'CAT0003', 10),
+('BRG0007', 'Barang G', 35000, 'Info Barang G', 'default.jpg', 'CAT0004', 10),
+('BRG0008', 'Barang H', 65000, 'Info Barang H', 'default.jpg', 'CAT0004', 10),
+('BRG0009', 'Barang I', 25000, 'Info Barang I', 'default.jpg', 'CAT0005', 10),
+('BRG0010', 'Barang J', 15000, 'Info Barang J', 'default.jpg', 'CAT0005', 10);
 
 -- Menghapus dan Membuat table : pengguna
 DROP TABLE IF EXISTS  pengguna;
