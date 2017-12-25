@@ -5,7 +5,8 @@
         .MainButton {
             width: 100px;
         }
-         .MainButton2 {
+
+        .MainButton2 {
             width: 200px;
         }
     </style>
@@ -19,46 +20,50 @@
         </tr>
         <tr>
             <td>
-                <asp:Repeater runat="server"
-                    ID="Repeat_produk" />
+                <asp:Repeater ID="rptInfoProduk" runat="server"
+                    OnItemCommand="rptInfoProduk_ItemCommand">
+                    <ItemTemplate>
+                        <table width="20%" border="1" class="table table-light table-bordered">
+                            <tr>
+                                <th align="left" width="20%">Nama Barang</th>
+                                <th width="10px">:</th>
+                                <th><%#Eval("PNmBrg")%></th>
+                            </tr>
+
+                            <tr>
+                                <th align="left">Harga Barang</th>
+                                <th>:</th>
+                                <th><%#Eval("PHrgBrg","{0:C}")%></th>
+                            </tr>
+
+                            <tr>
+                                <th align="left">Info Promo</th>
+                                <th>:</th>
+                                <th><%#Eval("PInfoPromo")%></th>
+                            </tr>
+
+                            <tr>
+                                <th align="left">Harga Promo</th>
+                                <th>:</th>
+                                <th><%#Eval("PHrgPromo","{0:C}")%></th>
+                            </tr>
+                    </ItemTemplate>
+                    <FooterTemplate>
+                        </table>
+                    </FooterTemplate>
+                </asp:Repeater>
             </td>
         </tr>
         <tr>
             <td align="center">
-                <asp:Button runat="server"
-                    CssClass="MainButton2"
-                    ID="Btn_tambah_keranjang"
-                    Text="TAMBAH KERANJANG" />
+                <asp:Button ID="btnTambah" runat="server" Text="TAMBAH KERANJANG" 
+                    Width="340px" onclick="btnTambah_Click" class="MainButton2"/>
             </td>
         </tr>
         <tr>
             <td align="center">
-                <asp:Button runat="server"
-                    CssClass="MainButton"
-                    ID="Btn_kembali"
-                    Text="KEMBALI" />
-            </td>
-        </tr>
-        <tr>
-            <td colspan="3">
-                <asp:Button runat="server"
-                    ID="Btn_simpan"
-                    CssClass="MainButton"
-                    Text="Simpan"
-                    ValidationGroup="FrmEntry" />
-                <asp:Button runat="server"
-                    ID="Btn_ubah"
-                    CssClass="MainButton"
-                    Text="Ubah"
-                    ValidationGroup="FrmEntry" />
-                <asp:Button runat="server"
-                    ID="Btn_hapus"
-                    CssClass="MainButton"
-                    Text="Hapus" />
-                <asp:Button runat="server"
-                    ID="Btn_batal"
-                    CssClass="MainButton"
-                    Text="Batal" />
+                <asp:Button ID="btnKembali" runat="server" Text="KEMBALI" Width="106px" 
+                    onclick="btnKembali_Click" class="MainButton2"/>
             </td>
         </tr>
     </table>

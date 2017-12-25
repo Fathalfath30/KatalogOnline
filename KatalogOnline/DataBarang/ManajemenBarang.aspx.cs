@@ -40,14 +40,14 @@ namespace KatalogOnline.DataBarang {
         }
 
         protected void Page_Load(object sender, EventArgs e) {
-            if(!this.IsPostBack) {
-                /*if(Session["Hak"].ToString() == "2") {
+            if(!IsPostBack) {
+                if(Session["Hak"] == null || Session["Hak"].ToString() != "1") { 
                     string pesan = "alert(\"Tidak Mempunyai Hak\");";
                     ScriptManager.RegisterStartupScript
                         (this, typeof(string), "HAK AKSES", pesan, true);
                     Response.AddHeader("REFRESH", "0;URL=../Default.aspx");
                     return;
-                }*/
+                }
 
                 Tbox_nama_barang.Focus();
                 bersih();
