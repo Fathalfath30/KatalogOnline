@@ -85,6 +85,7 @@
     <Compile Include="App_Code\ClsPengguna.cs" />
     <Compile Include="App_Code\ClsPesan.cs" />
     <Compile Include="App_Code\ClsPromo.cs" />
+    <Compile Include="ClsDaftarBaru.cs" />
     <Compile Include="DataBarang\ManajemenBarang.aspx.cs">
       <DependentUpon>ManajemenBarang.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

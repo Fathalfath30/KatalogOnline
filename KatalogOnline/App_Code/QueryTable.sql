@@ -84,3 +84,11 @@ CREATE TABLE detil_pesan (
 	Subtotal VARCHAR,
 	PRIMARY KEY(KdPesan, KdBrg)
 );
+
+DROP TABLE IF EXISTS promo;
+CREATE TABLE promo (
+	KdBrg VARCHAR(7) NOT NULL,
+	InfoPromo VARCHAR(50) NOT NULL,
+	HrgPromo MONEY,
+	PRIMARY KEY(KdBrg)
+);
