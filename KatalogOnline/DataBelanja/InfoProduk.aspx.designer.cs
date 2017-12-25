@@ -13,6 +13,33 @@ namespace KatalogOnline.DataBelanja {
     public partial class InfoProduk {
         
         /// <summary>
+        /// Repeat_produk control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater Repeat_produk;
+        
+        /// <summary>
+        /// Btn_tambah_keranjang control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Btn_tambah_keranjang;
+        
+        /// <summary>
+        /// Btn_kembali control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Btn_kembali;
+        
+        /// <summary>
         /// Btn_simpan control.
         /// </summary>
         /// <remarks>

@@ -10,7 +10,7 @@
     <table cellpading="10">
         <tr>
             <td colspan="3">
-                <h4><u>MANAJEMEN KATEGORI</u></h4>
+                <h4><u>DAFTAR BARU</u></h4>
             </td>
         </tr>
         <tr>

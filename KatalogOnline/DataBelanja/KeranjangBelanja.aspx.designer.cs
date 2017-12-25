@@ -13,6 +13,69 @@ namespace KatalogOnline.DataBelanja {
     public partial class KeranjangBelanja {
         
         /// <summary>
+        /// Gview_keranjang control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView Gview_keranjang;
+        
+        /// <summary>
+        /// Lbl_jumlah_item control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Lbl_jumlah_item;
+        
+        /// <summary>
+        /// Lbl_total_bayar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Lbl_total_bayar;
+        
+        /// <summary>
+        /// Btn_konfirmasi control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Btn_konfirmasi;
+        
+        /// <summary>
+        /// Lbl_nama_barang control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Lbl_nama_barang;
+        
+        /// <summary>
+        /// Dlist_jumlah_barang control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList Dlist_jumlah_barang;
+        
+        /// <summary>
+        /// Btn_update_jumlah_barang control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Btn_update_jumlah_barang;
+        
+        /// <summary>
         /// Btn_simpan control.
         /// </summary>
         /// <remarks>
