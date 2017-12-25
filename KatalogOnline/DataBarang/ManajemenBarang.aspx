@@ -19,7 +19,7 @@
             <td>:</td>
             <td>
                 <asp:DropDownList runat="server"
-                    ID="Dlist_cari_kategori">
+                    ID="Dlist_cari_kategori" OnSelectedIndexChanged="Dlist_cari_kategori_SelectedIndexChanged">
                 </asp:DropDownList>
             </td>
         </tr>
@@ -34,8 +34,32 @@
         </tr>
         <tr>
             <td colspan="3">
-                <asp:GridView runat="server"
-                    ID="Gview_manajemen_barang">
+                <asp:GridView ID="Gview_manajemen_barang" runat="server" AllowPaging="True"
+                    AutoGenerateColumns="False"
+                    DataKeyNames="PKdBrg,PIdKat,PGbrBrg"
+                    OnSelectedIndexChanged="Gview_manajemen_barang_SelectedIndexChanged"
+                    OnPageIndexChanging="Gview_manajemen_barang_PageIndexChanging"
+                    CssClass="table table-striped table-bordered table-hover"
+                    EmptyDataText="DATA BARANG TIDAK ADA" PageSize="5"
+                    CellPadding="4" 
+                    ForeColor="#333333" 
+                    EnableModelValidation="True">
+                    <Columns>
+                        <asp:ImageField DataImageUrlField="PGbrBrg"
+                            DataImageUrlFormatString="~/Gambar/Upload/{0}" HeaderText="Gambar">
+                            <ControlStyle Height="100px" Width="100px" />
+                        </asp:ImageField>
+                        <asp:BoundField DataField="PNmBrg" HeaderText="Nama Barang" />
+                        <asp:BoundField DataField="PHrgBrg" HeaderText="Harga Barang" />
+                        <asp:BoundField DataField="PInfoBrg" HeaderText="Info Barang" />
+                        <asp:BoundField DataField="PStokBrg" HeaderText="Stok" />
+                        <asp:CommandField SelectText="Pilih" ShowSelectButton="True" />
+                    </Columns>
+                    <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+                    <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+                    <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
+                    <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
+                    <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
                 </asp:GridView>
             </td>
         </tr>
@@ -78,10 +102,10 @@
             <td>Harga Barang</td>
             <td>:</td>
             <td>
-                <asp:Label runat="server" 
+                <asp:Label runat="server"
                     Text="Rp." />
-                <asp:TextBox runat="server" 
-                    ID="Tbox_harga_barang"/>
+                <asp:TextBox runat="server"
+                    ID="Tbox_harga_barang" />
                 <asp:RequiredFieldValidator runat="server"
                     ControlToValidate="Tbox_harga_barang"
                     ValidationGroup="FrmEntry"
@@ -141,20 +165,20 @@
                     ID="Btn_simpan"
                     CssClass="MainButton"
                     Text="Simpan"
-                    ValidationGroup="FrmEntry" />
+                    ValidationGroup="FrmEntry" OnClick="Btn_simpan_Click" />
                 <asp:Button runat="server"
                     ID="Btn_ubah"
                     CssClass="MainButton"
                     Text="Ubah"
-                    ValidationGroup="FrmEntry" />
+                    ValidationGroup="FrmEntry" OnClick="Btn_ubah_Click" />
                 <asp:Button runat="server"
                     ID="Btn_hapus"
                     CssClass="MainButton"
-                    Text="Hapus" />
+                    Text="Hapus" OnClick="Btn_hapus_Click" />
                 <asp:Button runat="server"
                     ID="Btn_batal"
                     CssClass="MainButton"
-                    Text="Batal" />
+                    Text="Batal" OnClick="Btn_batal_Click" />
             </td>
         </tr>
     </table>

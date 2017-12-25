@@ -14,115 +14,82 @@
             </td>
         </tr>
         <tr>
-            <td>Cari Nama Pengguna</td>
-            <td>:</td>
-            <td>
-                <asp:TextBox runat="server"
-                    ID="Tbox_cari_nama_pengguna"
-                    AutoPostBack="true" />
-            </td>
-        </tr>
-        <tr>
             <td colspan="3">
-                <asp:DataList runat="server"
-                    ID="Dlist_manajemen_pengguna">
-                </asp:DataList>
             </td>
         </tr>
         <tr>
             <td>Username</td>
             <td>:</td>
             <td>
-                <asp:TextBox runat="server"
-                    ID="Tbox_username" />
-                <asp:RequiredFieldValidator runat="server"
-                    ControlToValidate="Tbox_username"
-                    ValidationGroup="FrmEntry"
-                    Display="Dynamic"
-                    ErrorMessage="Username harus di isi!" />
+                <asp:TextBox ID="txtUsername" CssClass="form-control col-6" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+                    ErrorMessage="Tidak Boleh Kosong" ControlToValidate="txtUsername" 
+                    ValidationGroup="DB"></asp:RequiredFieldValidator>
+            
             </td>
         </tr>
         <tr>
             <td>Password</td>
             <td>:</td>
             <td>
-                <asp:TextBox runat="server" 
-                    ID="Tbox_password"
-                    TextMode="Password" />
-                <asp:RequiredFieldValidator runat="server"
-                    ControlToValidate="Tbox_password"
-                    ValidationGroup="FrmEntry"
-                    Display="Dynamic"
-                    ErrorMessage="Password harus di isi!" />
+                <asp:TextBox ID="txtPassword" CssClass="form-control col-6" runat="server" TextMode="Password"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="DBTextBoxPassword" runat="server" 
+                    ErrorMessage="Password Tidak Boleh Kosong" ControlToValidate="txtPassword" 
+                    ValidationGroup="DB"></asp:RequiredFieldValidator>
+            
             </td>
         </tr>
         <tr>
             <td>Konfirmasi Password</td>
             <td>:</td>
             <td>
-                <asp:TextBox runat="server"
-                    ID="Tbox_konfirmasi_password"
-                    TextMode="Password" />
-                <asp:RequiredFieldValidator runat="server"
-                    ControlToValidate="Tbox_konfirmasi_password"
-                    ValidationGroup="FrmEntry"
-                    Display="Dynamic"
-                    ErrorMessage="Konfirmasi password harus di isi!" />
-                <asp:CompareValidator runat="server"
-                    ControlToValidate="Tbox_konfirmasi_password"
-                    ControlToCompare="Tbox_password"
-                    ValidationGroup="Frmentry"
-                    Display="Dynamic"
-                    ErrorMessage="Sesuaikan dengan password sebelumnya" />
+                <asp:TextBox ID="txtKonfirmasi" CssClass="form-control col-6" runat="server" TextMode="Password"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="DBTextBoxKonfirm" runat="server" 
+                    ErrorMessage="Tidak Boleh Kosong" ControlToValidate="txtKonfirmasi" 
+                    Display="Dynamic" ValidationGroup="DB"></asp:RequiredFieldValidator>
+                <asp:CompareValidator ID="CompareValidator1" runat="server" 
+                    ErrorMessage="Konfirmasi Password Tidak Sama Dengan Password" ControlToCompare="txtPassword" 
+                    ControlToValidate="txtKonfirmasi" Display="Dynamic" ValidationGroup="DB"></asp:CompareValidator>
             </td>
         </tr>
         <tr>
             <td>Nama</td>
             <td>:</td>
             <td>
-                <asp:TextBox runat="server"
-                    ID="Tbox_nama" />
-                <asp:RequiredFieldValidator runat="server"
-                    ControlToValidate="Tbox_nama"
-                    ValidationGroup="FrmEntry"
-                    Display="Dynamic"
-                    ErrorMessage="Nama harus di isi!" />
+                <asp:TextBox ID="txtNama" CssClass="form-control col-6" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="DBtextboxNama" runat="server" 
+                    ErrorMessage="Tidak Boleh Kosong" ControlToValidate="txtNama" 
+                    ValidationGroup="DB"></asp:RequiredFieldValidator>
+            
             </td>
         </tr>
         <tr>
             <td>No Telepon</td>
             <td>:</td>
             <td>
-                <asp:TextBox runat="server"
-                    ID="Tbox_notelp" />
-                <asp:RequiredFieldValidator runat="server"
-                    ControlToValidate="Tbox_notelp"
-                    ValidationGroup="FrmEntry"
-                    Display="Dynamic"
-                    ErrorMessage="Nomor telephone harus di isi" />
-                <asp:RegularExpressionValidator runat="server"
-                    ControlToValidate="Tbox_notelp"
-                    ValidationExpression="^[0-9]{1,13}$"
-                    Display="Dynamic"
-                    ErrorMessage="Hanya Menerima angka 0-9 sebanyak 13 karakter" />
+                <asp:TextBox ID="txtNoTelp" CssClass="form-control col-6" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="DBTextBoxNomorTelepon" runat="server" 
+                    ErrorMessage="Tidak Boleh Kosong" ControlToValidate="txtNoTelp" 
+                    Display="Dynamic" ValidationGroup="DB"></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="DBTextBoxNoTelepon" runat="server" 
+                    ErrorMessage="Masukkan Angka, Maksimal 15 Digit" 
+                    ControlToValidate="txtNoTelp" Display="Dynamic" 
+                    ValidationExpression="^[0-9]{1,15}$" ValidationGroup="DB"></asp:RegularExpressionValidator>
             </td>
         </tr>
         <tr>
             <td>Nomor Kartu Kredit</td>
             <td>:</td>
             <td>
-                <asp:TextBox runat="server"
-                    ID="Tbox_kredit" />
-                <asp:RequiredFieldValidator runat="server" 
-                    ControlToValidate="Tbox_kredit"
-                    ValidationGroup="FrmEntry"
-                    Display="Dynamic"
-                    ErrorMessage="Nomor kartu kredit harus di isi !"/>
-                <asp:RegularExpressionValidator runat="server"
-                    ControlToValidate="Tbox_kredit"
-                    ValidationExpression="^[0-9]{1,13}$"
-                    Display="Dynamic"
-                    ErrorMessage="Hanya Menerima angka 0-9 sebanyak 13 karakter" />
+                <asp:TextBox ID="txtNoKartu" CssClass="form-control col-6" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="DBTextBoxNoKartuKredit" runat="server" 
+                    ErrorMessage="Tidak Boleh Kosong" ControlToValidate="txtNoKartu" 
+                    Display="Dynamic" ValidationGroup="DB"></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="DBTextBokNomorKartuKredits" runat="server" 
+                    ErrorMessage="Masukkan Angka, Maksimal 16 Digit" 
+                    ControlToValidate="txtNoKartu" Display="Dynamic" 
+                    ValidationExpression="^[0-9]{1,16}$" ValidationGroup="DB"></asp:RegularExpressionValidator>
+            
             </td>
         </tr>
         <tr>
@@ -130,21 +97,13 @@
                 <asp:Button runat="server"
                     ID="Btn_simpan"
                     CssClass="MainButton"
-                    Text="Simpan"
-                    ValidationGroup="FrmEntry" />
+                    Text="Daftar"
+                    ValidationGroup="FrmEntry" OnClick="btnDaftar_Click" />
                 <asp:Button runat="server"
                     ID="Btn_ubah"
                     CssClass="MainButton"
-                    Text="Ubah"
-                    ValidationGroup="FrmEntry" />
-                <asp:Button runat="server"
-                    ID="Btn_hapus"
-                    CssClass="MainButton"
-                    Text="Hapus" />
-                <asp:Button runat="server"
-                    ID="Btn_batal"
-                    CssClass="MainButton"
-                    Text="Batal" />
+                    Text="Batal"
+                    ValidationGroup="FrmEntry" OnClick="btnBatal_Click" />
             </td>
         </tr>
     </table>

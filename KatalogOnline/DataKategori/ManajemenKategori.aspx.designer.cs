@@ -13,84 +13,111 @@ namespace KatalogOnline.DataKategori {
     public partial class ManajemenKategori {
         
         /// <summary>
-        /// Tbox_cari control.
+        /// txtCariNama control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Tbox_cari;
+        protected global::System.Web.UI.WebControls.TextBox txtCariNama;
         
         /// <summary>
-        /// Gview_kategori control.
+        /// gvKategori control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView Gview_kategori;
+        protected global::System.Web.UI.WebControls.GridView gvKategori;
         
         /// <summary>
-        /// Tbox_id_kategori control.
+        /// txtIdKat control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Tbox_id_kategori;
+        protected global::System.Web.UI.WebControls.TextBox txtIdKat;
         
         /// <summary>
-        /// Tbox_nama_kategori control.
+        /// RequiredFieldValidator1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Tbox_nama_kategori;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
         
         /// <summary>
-        /// Tbox_info_kategori control.
+        /// txtNmKat control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Tbox_info_kategori;
+        protected global::System.Web.UI.WebControls.TextBox txtNmKat;
         
         /// <summary>
-        /// Btn_simpan control.
+        /// RequiredFieldValidator2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Btn_simpan;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
         
         /// <summary>
-        /// Btn_ubah control.
+        /// txtInfoKat control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Btn_ubah;
+        protected global::System.Web.UI.WebControls.TextBox txtInfoKat;
         
         /// <summary>
-        /// Btn_hapus control.
+        /// RequiredFieldValidator3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Btn_hapus;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
         
         /// <summary>
-        /// Btn_batal control.
+        /// btnSimpan control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Btn_batal;
+        protected global::System.Web.UI.WebControls.Button btnSimpan;
+        
+        /// <summary>
+        /// btnUbah control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnUbah;
+        
+        /// <summary>
+        /// BtnHapus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnHapus;
+        
+        /// <summary>
+        /// BtnBatal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnBatal;
     }
 }

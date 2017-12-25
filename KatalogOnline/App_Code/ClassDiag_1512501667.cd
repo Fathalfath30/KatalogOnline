@@ -3,66 +3,65 @@
   <Class Name="KatalogOnline.ClsKategori">
     <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAEAAAAAAAACAAAAAAAAAAAAAIAAAQAAAggAAAAAAA=</HashCode>
-      <FileName>ClsKategori.cs</FileName>
+      <HashCode>AgAACAEAAAAgACAAQAAAAIAAAQAAgIAAAQCAAAAAAAA=</HashCode>
+      <FileName>App_Code\ClsKategori.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="KatalogOnline.ClsBarang">
     <Position X="2.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>ClsBarang.cs</FileName>
+      <HashCode>AwAACAEAAAAACDAAAAAAQIEEBAAIgCAAAyCABAAEAAA=</HashCode>
+      <FileName>App_Code\ClsBarang.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KatalogOnline.ClsPengguna">
     <Position X="4" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>ClsPengguna.cs</FileName>
+      <HashCode>AAAACAkAAAABACAAAABAgIAADBAAooAAACCAAAAAACA=</HashCode>
+      <FileName>App_Code\ClsPengguna.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KatalogOnline.ClsPromo">
     <Position X="0.5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>ClsPromo.cs</FileName>
+      <HashCode>AABACAEAAAAAECAAAAAAAIAAAAAIoAAAACAAAAAAAAA=</HashCode>
+      <FileName>App_Code\ClsPromo.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KatalogOnline.ClsPesan">
     <Position X="2.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>ClsPesan.cs</FileName>
+      <HashCode>AAAAAAAAACAACAAAAAQAAIAABBAAgAAAAQAAAAAIAAA=</HashCode>
+      <FileName>App_Code\ClsPesan.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KatalogOnline.ClsDetilPesan">
     <Position X="4" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>ClsDetilPesan.cs</FileName>
+      <HashCode>AAAAIAAAACAACAAAAAAAAIAAAAAIwAgAASAAAAAAAAA=</HashCode>
+      <FileName>App_Code\ClsDetilPesan.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KatalogOnline.ClsItemKereta">
     <Position X="0.5" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>ClsItemKereta.cs</FileName>
+      <HashCode>AwBACAEAAAAAEBAAAAAAQAEEDAAIqAQAAACAAAIEgBA=</HashCode>
+      <FileName>App_Code\ClsItemKereta.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KatalogOnline.ClsKereta">
     <Position X="2.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>ClsKereta.cs</FileName>
+      <HashCode>AAAAAAAgAEAAAAAAAQAAAAAAgQAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\ClsKereta.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Interface Name="KatalogOnline.KatalogOnlineModel&lt;T&gt;">
-    <Position X="6" Y="0.5" Width="1.5" />
+  <Class Name="KatalogOnline.ClsDaftarBaru">
+    <Position X="6.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAEAAAAAAAACAAAAAAAAAAAAAIAAAQAAAggAAAAAAA=</HashCode>
-      <FileName>App_Code\KatalogOnlineModel.cs</FileName>
+      <HashCode>AAAAAAAAAAABAAAAAABAgIAADBAAooAAACCAAAAAACA=</HashCode>
+      <FileName>ClsDaftarBaru.cs</FileName>
     </TypeIdentifier>
-  </Interface>
+  </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

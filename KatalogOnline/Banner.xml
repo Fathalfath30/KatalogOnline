@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Advertisements>
+
+  <Ad>
+    <ImageUrl>~/Image/Banner/Banner1.jpg</ImageUrl>
+    <NavigateUrl>http://www.budiluhur.ac.id</NavigateUrl>
+    <Impressions>10</Impressions>
+    <AlternateText>Battlefield 4</AlternateText>
+    <Keyword>Budi Luhur</Keyword>
+  </Ad>
+
+  <Ad>
+    <ImageUrl>~/Image/Banner/Banner2.png</ImageUrl>
+    <NavigateUrl>http://www.fti.budiluhur.ac.id</NavigateUrl>
+    <Impressions>15</Impressions>
+    <AlternateText>Battlefield 1</AlternateText>
+    <Keyword>Budi Luhur</Keyword>
+  </Ad>
+
+  <Ad>
+    <ImageUrl>~/Image/Banner/Banner3.jpg</ImageUrl>
+    <NavigateUrl>http://www.student.budiluhur.ac.id</NavigateUrl>
+    <Impressions>15</Impressions>
+    <AlternateText>Battlefield Hardline</AlternateText>
+    <Keyword>Budi Luhur</Keyword>
+  </Ad>
+
+</Advertisements>

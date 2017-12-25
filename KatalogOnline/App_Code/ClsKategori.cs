@@ -14,129 +14,122 @@ using System.Web.Configuration;
 using System.Collections.Generic;
 
 namespace KatalogOnline {
-    public class ClsKategori : KatalogOnlineModel<ClsKategori> {
-        private string FIdKategori = "";
-        private string FNmKategori = "";
-        private string FInfoKategori = "";
-        private string StrConn = WebConfigurationManager.ConnectionStrings["CS_Webonline"].ConnectionString;
-        private string Query;
-        public string PIdKategori {
-            set { PIdKategori = value.Trim(); }
-            get { return PIdKategori.Trim(); }
-        }
+    public class ClsKategori {
+        private string FIdKat;
+        private string FInfoKat;
+        private string FNmKat;
+        string StrConn = WebConfigurationManager.ConnectionStrings["CS_webonline"].ConnectionString;
 
-        public string PNmKategori {
-            set { FIdKategori = value.Trim(); }
-            get { return FIdKategori.Trim(); }
-        }
-
-        public string PInfoKategori {
-            set { FInfoKategori = value.Trim(); }
-            get { return FInfoKategori.Trim(); }
-        }
-
-        public string auto_number() {
-            string auto_id = "CAT0001";
-            using(SqlConnection SqlConn = new SqlConnection(StrConn)) {
-                SqlConn.Open();
-
-                Query = "SELECT TOP 1 RIGHT(IdKat, 4) AS ID FROM Kategori ORDER BY IdKat DESC";
-                SqlCommand SqlCmd = new SqlCommand(Query, SqlConn);
-                SqlDataReader sReader = SqlCmd.ExecuteReader();
-                if(sReader.Read()) {
-                    auto_id = string.Format(
-                        "CAT{1:0000}",
-                        Convert.ToDouble(sReader["ID"].ToString()) + 1
-                        );
-                }
+        public string PIdKat {
+            get {
+                return FIdKat;
             }
-            return auto_id;
+            set {
+                FIdKat = value;
+            }
         }
 
-        public List<ClsKategori> cari_data() {
+        public string PInfoKat {
+            get {
+                return FInfoKat;
+            }
+            set {
+                FInfoKat = value;
+            }
+        }
+
+        public string PNmKat {
+            get {
+                return FNmKat;
+            }
+            set {
+                FNmKat = value;
+            }
+        }
+
+        public string Autonumber() {
             using(SqlConnection SqlConn = new SqlConnection(StrConn)) {
-                SqlConn.Open();
-
-                List<ClsKategori> dataList = new List<ClsKategori>();
-                dataList.Clear();
-                Query = "SELECT IdKat AS ID_KATEGORI, NmKat AS NAMA_KATEGORI, InfoKat AS INFO_KATEGORI FROM kategori ";
-                Query += "WHERE IdKat LIKE '%{0}% OR Nmkat LIKE '%{1}%' OR InfoKat LIKE '%{2}%'";
-                Query = string.Format(Query, PIdKategori, PNmKategori, PInfoKategori);
-
+                string NilaiAwal, NilaiAsli, NilaiAuto;
+                int NilaiTambah;
+                string Query = "SELECT IdKat FROM kategori ORDER BY IdKat DESC";
                 SqlCommand SqlCmd = new SqlCommand(Query, SqlConn);
-                SqlDataReader sreader = SqlCmd.ExecuteReader();
+                SqlDataReader SReader;
+                SqlConn.Open();
+                SReader = SqlCmd.ExecuteReader();
+                if(SReader.Read()) {
+                    NilaiAsli = SReader["IdKat"].ToString();
+                    NilaiTambah = System.Convert.ToInt32(NilaiAsli.Substring(3, 4)) + 1;
+                    NilaiAwal = System.Convert.ToString(NilaiTambah);
+                    NilaiAuto = "CAT" + "0000".Substring(NilaiAwal.Length) + NilaiAwal;
+                } else {
+                    NilaiAuto = "CAT0001";
+                }
+                return NilaiAuto;
+            }
+        }
 
-                if(sreader.HasRows) {
-                    while(sreader.Read()) {
+        public int Hapus() {
+            using(SqlConnection SqlConn = new SqlConnection(StrConn)) {
+                string Query =
+                    "DELETE FROM kategori WHERE IdKat=@1";
+                SqlCommand SqlCmd = new SqlCommand(Query, SqlConn);
+                SqlCmd.Parameters.AddWithValue("@1", FIdKat);
+                int Hasil = 0;
+                SqlConn.Open();
+                Hasil = SqlCmd.ExecuteNonQuery();
+                return Hasil;
+            }
+        }
+
+        public int Simpan() {
+            using(SqlConnection SqlConn = new SqlConnection(StrConn)) {
+                string Query =
+                    "INSERT INTO kategori(IdKat,NmKat,InfoKat)VALUES(@1,@2,@3)";
+                SqlCommand SqlCmd = new SqlCommand(Query, SqlConn);
+                SqlCmd.Parameters.AddWithValue("@1", FIdKat);
+                SqlCmd.Parameters.AddWithValue("@2", FNmKat);
+                SqlCmd.Parameters.AddWithValue("@3", FInfoKat);
+                int Hasil = 0;
+                SqlConn.Open();
+                Hasil = SqlCmd.ExecuteNonQuery();
+                return Hasil;
+            }
+        }
+
+        public List<ClsKategori> TampilData(string xNmKat) {
+            using(SqlConnection SqlConn = new SqlConnection(StrConn)) {
+                string Query = "SELECT * FROM kategori WHERE NmKat LIKE '%" + xNmKat + "%'";
+                List<ClsKategori> List_data = new List<ClsKategori>();
+                SqlCommand SqlCmd = new SqlCommand(Query, SqlConn);
+
+                SqlDataReader SReader;
+                SqlConn.Open();
+                SReader = SqlCmd.ExecuteReader();
+                if(SReader.HasRows) {
+                    while(SReader.Read()) {
                         ClsKategori Obj = new ClsKategori();
-                        Obj.PIdKategori = sreader["ID_KATEGORI"].ToString();
-                        Obj.PNmKategori = sreader["NAMA_KATEGORI"].ToString();
-                        Obj.PInfoKategori = sreader["INFO_KATEGORI"].ToString();
-                        dataList.Add(Obj);
+                        Obj.FIdKat = SReader["IdKat"].ToString();
+                        Obj.FNmKat = SReader["NmKat"].ToString();
+                        Obj.FInfoKat = SReader["InfoKat"].ToString();
+                        List_data.Add(Obj);
                     }
                 }
-
-                return dataList;
+                return List_data;
             }
         }
 
-        public bool hapus_data() {
+        public int Ubah() {
             using(SqlConnection SqlConn = new SqlConnection(StrConn)) {
-                SqlConn.Open();
-
-                Query = "DELETE FROM kategori WHERE IdKat=@p1";
+                string Query =
+                    "UPDATE kategori SET NmKat=@1, InfoKat=@2  WHERE IdKat=@3";
                 SqlCommand SqlCmd = new SqlCommand(Query, SqlConn);
-                SqlCmd.Parameters.AddWithValue("@p1", PIdKategori.Trim());
-
-                return (SqlCmd.ExecuteNonQuery() > 0);
-            }
-        }
-
-        public bool simpan_data() {
-            using(SqlConnection SqlConn = new SqlConnection(StrConn)) {
+                SqlCmd.Parameters.AddWithValue("@1", FNmKat);
+                SqlCmd.Parameters.AddWithValue("@2", FInfoKat);
+                SqlCmd.Parameters.AddWithValue("@3", FIdKat);
+                int Hasil = 0;
                 SqlConn.Open();
-                Query = "INSERT INTO kategori (PidKat, NmKat, InfoKat) VALUES (@pnama, @pinfo, @pid)";
-                SqlCommand SqlCmd = new SqlCommand(Query, SqlConn);
-                SqlCmd.Parameters.AddWithValue("@pnama", PNmKategori);
-                SqlCmd.Parameters.AddWithValue("@pinfo", PInfoKategori);
-                SqlCmd.Parameters.AddWithValue("@pid", PIdKategori);
-                return (SqlCmd.ExecuteNonQuery() > 0);
-            }
-        }
-
-        public List<ClsKategori> tampil_data() {
-            using(SqlConnection SqlConn = new SqlConnection(StrConn)) {
-                SqlConn.Open();
-
-                List<ClsKategori> dataList = new List<ClsKategori>();
-                dataList.Clear();
-                Query = "SELECT IdKat AS ID_KATEGORI, NmKat AS NAMA_KATEGORI, InfoKat AS INFO_KATEGORI FROM kategori";
-                SqlCommand SqlCmd = new SqlCommand(Query, SqlConn);
-                SqlDataReader sreader = SqlCmd.ExecuteReader();
-
-                if(sreader.HasRows) {
-                    while(sreader.Read()) {
-                        ClsKategori Obj = new ClsKategori();
-                        Obj.PIdKategori = sreader["ID_KATEGORI"].ToString();
-                        Obj.PNmKategori = sreader["NAMA_KATEGORI"].ToString();
-                        Obj.PInfoKategori = sreader["INFO_KATEGORI"].ToString();
-                        dataList.Add(Obj);
-                    }
-                }
-
-                return dataList;
-            }
-        }
-
-        public bool update_data() {
-            using(SqlConnection SqlConn = new SqlConnection(StrConn)) {
-                SqlConn.Open();
-                Query = "UPDATE kategori SET NmKat=@pnama, InfoKat=@pinfo WHERE PidKat=@pid";
-                SqlCommand SqlCmd = new SqlCommand(Query, SqlConn);
-                SqlCmd.Parameters.AddWithValue("@pnama", PNmKategori);
-                SqlCmd.Parameters.AddWithValue("@pinfo", PInfoKategori);
-                SqlCmd.Parameters.AddWithValue("@pid", PIdKategori);
-                return (SqlCmd.ExecuteNonQuery() > 0);
+                Hasil = SqlCmd.ExecuteNonQuery();
+                return Hasil;
             }
         }
     }

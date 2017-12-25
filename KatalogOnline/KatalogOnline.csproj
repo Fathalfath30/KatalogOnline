@@ -53,7 +53,12 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\db_1512501667.mdf" />
+    <Content Include="App_Data\db_1512501667_log.ldf">
+      <DependentUpon>db_1512501667.mdf</DependentUpon>
+    </Content>
     <Content Include="App_Themes\MyTheme\MyStyle.css" />
+    <Content Include="Banner.xml" />
     <Content Include="DataBarang\ManajemenBarang.aspx" />
     <Content Include="DataBelanja\InfoProduk.aspx" />
     <Content Include="DataBelanja\KeranjangBelanja.aspx" />
@@ -64,6 +69,10 @@
     <Content Include="DataPromo\ModifikasiPromo.aspx" />
     <Content Include="DataPromo\TambahPromo.aspx" />
     <Content Include="default.aspx" />
+    <Content Include="Image\Background\Background.jpg" />
+    <Content Include="Image\Banner\Banner1.jpg" />
+    <Content Include="Image\Banner\Banner2.png" />
+    <Content Include="Image\Banner\Banner3.jpg" />
     <Content Include="Login.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -76,6 +85,7 @@
     <Compile Include="App_Code\ClsPengguna.cs" />
     <Compile Include="App_Code\ClsPesan.cs" />
     <Compile Include="App_Code\ClsPromo.cs" />
+    <Compile Include="ClsDaftarBaru.cs" />
     <Compile Include="DataBarang\ManajemenBarang.aspx.cs">
       <DependentUpon>ManajemenBarang.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -146,7 +156,6 @@
     <Compile Include="default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="App_Code\KatalogOnlineModel.cs" />
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -174,7 +183,10 @@
     </None>
     <Content Include="Web.sitemap" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Gambar\Upload\" />
+    <Folder Include="Image\Upload\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

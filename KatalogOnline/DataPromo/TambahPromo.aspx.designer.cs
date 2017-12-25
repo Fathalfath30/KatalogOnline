@@ -13,102 +13,120 @@ namespace KatalogOnline.DataPromo {
     public partial class TambahPromo {
         
         /// <summary>
-        /// Tbox_cari_nama_barang control.
+        /// txtCariBarang control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Tbox_cari_nama_barang;
+        protected global::System.Web.UI.WebControls.TextBox txtCariBarang;
         
         /// <summary>
-        /// Gview_tambah_promo control.
+        /// gvBarang control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView Gview_tambah_promo;
+        protected global::System.Web.UI.WebControls.GridView gvBarang;
         
         /// <summary>
-        /// Tbox_kode_barang control.
+        /// txtKdBarang control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Tbox_kode_barang;
+        protected global::System.Web.UI.WebControls.TextBox txtKdBarang;
         
         /// <summary>
-        /// Tbox_nama_barang control.
+        /// txtNmBarang control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Tbox_nama_barang;
+        protected global::System.Web.UI.WebControls.TextBox txtNmBarang;
         
         /// <summary>
-        /// Tbox_harga_barang control.
+        /// txtHrgBarang control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Tbox_harga_barang;
+        protected global::System.Web.UI.WebControls.TextBox txtHrgBarang;
         
         /// <summary>
-        /// Tbox_info_promo control.
+        /// txtInfoPromo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Tbox_info_promo;
+        protected global::System.Web.UI.WebControls.TextBox txtInfoPromo;
         
         /// <summary>
-        /// Tbox_harga_promo control.
+        /// TextBoxHargaPromo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Tbox_harga_promo;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator TextBoxHargaPromo;
         
         /// <summary>
-        /// Btn_simpan control.
+        /// txtHrgPromo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Btn_simpan;
+        protected global::System.Web.UI.WebControls.TextBox txtHrgPromo;
         
         /// <summary>
-        /// Btn_ubah control.
+        /// RequiredFieldValidator2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Btn_ubah;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
         
         /// <summary>
-        /// Btn_hapus control.
+        /// RegularExpressionValidator1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Btn_hapus;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
         
         /// <summary>
-        /// Btn_batal control.
+        /// CompareValidator1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Btn_batal;
+        protected global::System.Web.UI.WebControls.CompareValidator CompareValidator1;
+        
+        /// <summary>
+        /// btnSimpan control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSimpan;
+        
+        /// <summary>
+        /// btnBatal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnBatal;
     }
 }
