@@ -67,6 +67,15 @@ namespace KatalogOnline.Master {
         protected global::System.Web.UI.WebControls.LinkButton Lbtn_username;
         
         /// <summary>
+        /// adRotatorDS control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.XmlDataSource adRotatorDS;
+        
+        /// <summary>
         /// MainMenu control.
         /// </summary>
         /// <remarks>
