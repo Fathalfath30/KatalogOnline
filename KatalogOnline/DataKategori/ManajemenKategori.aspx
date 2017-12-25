@@ -11,43 +11,39 @@
     <table>
         <tr>
             <td colspan="3">
-                <h4><u>MANAJEMEN KATEGORI</u></h4>
+                <h4><u>MANAJEMEN FrmEntryEGORI</u></h4>
             </td>
         </tr>
         <tr>
             <td>Cari Berdasarkan Nama kategori</td>
             <td>:</td>
             <td>
-                <asp:TextBox runat="server"
-                    ID="Tbox_cari"
-                    AutoPostBack="true" />
+                <asp:TextBox ID="txtCariNama" runat="server" AutoPostBack="True" Style="margin-left: 0px" Width="342px"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td colspan="3">
-                <asp:GridView runat="server"
-                    ID="Gview_kategori"
-                    DataKeyNames="PIdKategori, PNmKategori, PInfoKategori"
-                    AutoGenerateColumns="False"
+                <asp:GridView ID="gvKategori" runat="server" AllowPaging="True"
+                    OnPageIndexChanging="gvKategori_PageIndexChanging"
+                    AutoGenerateColumns="False" EmptyDataText="GRID TIDAK ADA DATA!"
                     PageSize="5"
-                    AllowPaging="true"
-                    HeaderStyle-BackColor="#3399ff"
-                    HeaderStyle-Font-Bold="true"
-                    CellPadding="10"
-                    CellSpacing="5"
-                    EmptyDataText="Tidak ada data yang dapat ditampilkan" 
-                    Font-Names="Arial" 
-                    OnPageIndexChanging="Gview_kategori_PageIndexChanging" 
-                    OnSelectedIndexChanged="Gview_kategori_SelectedIndexChanged" >
+                    CellPadding="4"
+                    ForeColor="#333333"
+                    EnableModelValidation="True">
+                    <AlternatingRowStyle BackColor="White" />
                     <Columns>
-                        <asp:BoundField DataField="PIdKategori" HeaderText="Id kategori" />
-                        <asp:BoundField DataField="PNmkategori" HeaderText="Nama Kategori" />
-                        <asp:BoundField DataField="PInfoKategori" HeaderText="Info Kategori" />
-                        <asp:CommandField SelectText="Pilih" ShowSelectButton="true" />
+                        <asp:CommandField SelectText="Pilih" ShowSelectButton="True" />
+                        <asp:BoundField DataField="PIdKat" HeaderText="Id Kategori" />
+                        <asp:BoundField DataField="PNmKat" HeaderText="Nama Kategori" />
+                        <asp:BoundField DataField="PInfoKat" HeaderText="Info Kategori" />
                     </Columns>
 
-                    <HeaderStyle BackColor="#3399FF" Font-Bold="True"></HeaderStyle>
-                    <SelectedRowStyle BackColor="#66CCFF" />
+                    <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+                    <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+                    <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
+                    <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
+                    <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
+
                 </asp:GridView>
             </td>
         </tr>
@@ -55,64 +51,49 @@
             <td>Id Kategori</td>
             <td>:</td>
             <td>
-                <asp:TextBox runat="server"
-                    ID="Tbox_id_kategori" />
-                <asp:RequiredFieldValidator runat="server"
-                    ControlToValidate="Tbox_id_kategori"
-                    ValidationGroup="FrmEntry"
-                    Display="Dynamic"
-                    ErrorMessage="Id kategori harus di isi" />
+                <asp:TextBox ID="txtIdKat" runat="server" Width="113px"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="ID Kategori Tidak Boleh Kosong" ControlToValidate="txtIdKat" ValidationGroup="FrmEntry"></asp:RequiredFieldValidator>
             </td>
         </tr>
         <tr>
             <td>Nama Kategori</td>
             <td>:</td>
             <td>
-                <asp:TextBox runat="server"
-                    ID="Tbox_nama_kategori" />
-                <asp:RequiredFieldValidator runat="server"
-                    ControlToValidate="Tbox_nama_kategori"
-                    ValidationGroup="FrmEntry"
-                    Display="Dynamic"
-                    ErrorMessage="Nama kategori harus di isi !" />
+                <asp:TextBox ID="txtNmKat" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Nama Kategori Tidak Boleh Kosong" ControlToValidate="txtNmKat"></asp:RequiredFieldValidator>
             </td>
         </tr>
         <tr>
             <td>Info Kategori</td>
             <td>:</td>
             <td>
-                <asp:TextBox runat="server"
-                    ID="Tbox_info_kategori" />
-                <asp:RequiredFieldValidator runat="server"
-                    ControlToValidate="Tbox_info_kategori"
-                    ValidationGroup="Frmentry"
-                    Display="Dynamic"
-                    ErrorMessage="Info kategori harus di isi !" />
+                <asp:TextBox ID="txtInfoKat" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Info Kategori Tidak Boleh Kosong" ControlToValidate="txtInfoKat" ValidationGroup="FrmEntry"></asp:RequiredFieldValidator>
             </td>
         </tr>
         <tr>
             <td colspan="3">
                 <asp:Button runat="server"
-                    ID="Btn_simpan"
+                    ID="btnSimpan"
                     CssClass="MainButton"
                     Text="Simpan"
-                    OnClick="Btn_simpan_Click"
+                    OnClick="btnSimpan_Click"
                     ValidationGroup="FrmEntry" />
                 <asp:Button runat="server"
-                    ID="Btn_ubah"
+                    ID="btnUbah"
                     CssClass="MainButton"
                     Text="Ubah"
-                    OnClick="Btn_ubah_Click"
+                    OnClick="btnUbah_Click"
                     ValidationGroup="FrmEntry" />
                 <asp:Button runat="server"
-                    ID="Btn_hapus"
+                    ID="BtnHapus"
                     CssClass="MainButton"
-                    OnClick="Btn_hapus_Click"
+                    OnClick="btnHapus_Click"
                     Text="Hapus" />
                 <asp:Button runat="server"
-                    ID="Btn_batal"
+                    ID="BtnBatal"
                     CssClass="MainButton"
-                    OnClick="Btn_batal_Click"
+                    OnClick="btnBatal_Click"
                     Text="Batal" />
             </td>
         </tr>

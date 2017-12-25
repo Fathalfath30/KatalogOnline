@@ -7,145 +7,133 @@ using System.Web.UI.WebControls;
 
 namespace KatalogOnline.DataKategori {
     public partial class ManajemenKategori : System.Web.UI.Page {
-        private ClsKategori _kategori;
-        private string strPesan;
+        ClsKategori _kategori = new ClsKategori();
 
-        private void refresh_form() {
-            Tbox_cari.Text = "";
-            Tbox_id_kategori.Text = "";
-            Tbox_nama_kategori.Text = "";
-            Tbox_info_kategori.Text = "";
-
-            Tbox_nama_kategori.Focus();
-            Tbox_id_kategori.Text = _kategori.auto_number();
-
-            bind_grid();
+        private void BindGrid() {
+            gvKategori.DataSource =
+                _kategori.TampilData(txtCariNama.Text);
+            gvKategori.SelectedIndex = -1;
+            gvKategori.DataBind();
         }
-
-        private void bind_grid() {
-            Gview_kategori.DataSource = _kategori.tampil_data(Tbox_cari.Text);
-            Gview_kategori.SelectedIndex = -1;
-            Gview_kategori.DataBind();
+        private void bersih() {
+            txtIdKat.Text = "";
+            txtNmKat.Text = "";
+            txtInfoKat.Text = "";
+            txtCariNama.Text = "";
+            txtNmKat.Focus();
+            BindGrid();
         }
         protected void Page_Load(object sender, EventArgs e) {
-            _kategori = new ClsKategori();
-           if (!IsPostBack) {
-                refresh_form();
+
+            if(!IsPostBack) {
+                /*if(Session["Hak"] == null || Session["Hak"].ToString() != "1") {
+                    string pesan = "alert(\"Tidak Mempunyai Hak\");";
+                    ScriptManager.RegisterStartupScript
+                    (this, typeof(string), "HAK AKSES", pesan, true);
+                    Response.AddHeader("REFRESH", "0;URL=../Default.aspx");
+                    return;
+                }*/
+                txtNmKat.Focus();
+                bersih();
+                txtIdKat.Text = _kategori.Autonumber();
             }
         }
-
-        protected void Btn_simpan_Click(object sender, EventArgs e) {
+        protected void btnSimpan_Click(object sender, EventArgs e) {
             try {
-                ClsKategori Obj = new ClsKategori();
-                Obj.PIdKategori = Obj.auto_number();
-                Obj.PNmKategori = Tbox_nama_kategori.Text;
-                Obj.PInfoKategori = Tbox_info_kategori.Text;
-                if(Obj.simpan_data()) {
-                    strPesan = "Data berhasil di simpan.";
+                int _hasil;
+                _kategori.PIdKat = txtIdKat.Text;
+                _kategori.PNmKat = txtNmKat.Text;
+                _kategori.PInfoKat = txtInfoKat.Text;
+                _hasil = _kategori.Simpan();
+                if(_hasil == 1) {
+                    string pesan = "alert(\"Data Behasil Disimpan\");";
+                    ScriptManager.RegisterStartupScript
+                        (this, GetType(), "SIMPAN DATA", pesan, true);
+                    bersih();
+                    txtIdKat.Text = _kategori.Autonumber();
                 } else {
-                    strPesan = "Data tidak berhasil di simpan.";
+                    string pesan = "alert(\"Data Tidak Berhasil Disimpan\");";
+                    ScriptManager.RegisterStartupScript
+                        (this, typeof(string), "SIMPAN DATA", pesan, true);
                 }
-                ScriptManager.RegisterStartupScript(
-                    this,
-                    GetType(),
-                    "Informasi",
-                    string.Format("alert(\"{0}\");", strPesan),
-                    true
-                  );
-                refresh_form();
             } catch(Exception ex) {
-                strPesan = "Error : " + ex.Message;
-                ScriptManager.RegisterStartupScript(
-                    this,
-                    GetType(),
-                    "Informasi",
-                    string.Format("alert(\"{0}\");", strPesan),
-                    true
-                  );
+                string errorex = ex.Message;
+                string pesan = "alert(\"ERROR LAINNYA;'" + errorex + "\");";
+                ScriptManager.RegisterStartupScript
+                    (this, GetType(), "SIMPAN DATA", pesan, true);
             }
-        }
 
-        protected void Btn_ubah_Click(object sender, EventArgs e) {
+        }
+        protected void btnUbah_Click(object sender, EventArgs e) {
             try {
-                ClsKategori Obj = new ClsKategori();
-                Obj.PIdKategori = Tbox_id_kategori.Text;
-                Obj.PNmKategori = Tbox_nama_kategori.Text;
-                Obj.PInfoKategori = Tbox_info_kategori.Text;
-                if(Obj.update_data()) {
-                    strPesan = "Data berhasil di update.";
+                int _hasil;
+                _kategori.PIdKat = txtIdKat.Text;
+                _kategori.PNmKat = txtNmKat.Text;
+                _kategori.PInfoKat = txtInfoKat.Text;
+                _hasil = _kategori.Ubah();
+                if(_hasil == 1) {
+                    string pesan = "alert(\"Data Behasil Diubah\");";
+                    ScriptManager.RegisterStartupScript
+                        (this, GetType(), "UBAH DATA", pesan, true);
+                    bersih();
+                    txtIdKat.Text = _kategori.Autonumber();
                 } else {
-                    strPesan = "Data tidak berhasil di update.";
+                    string pesan = "alert(\"Data Tidak Berhasil Diubah\");";
+                    ScriptManager.RegisterStartupScript
+                        (this, typeof(string), "UBAH DATA", pesan, true);
                 }
-                ScriptManager.RegisterStartupScript(
-                    this,
-                    GetType(),
-                    "Informasi",
-                    string.Format("alert(\"{0}\");", strPesan),
-                    true
-                  );
-                refresh_form();
             } catch(Exception ex) {
-                strPesan = "Error : " + ex.Message;
-                ScriptManager.RegisterStartupScript(
-                    this,
-                    GetType(),
-                    "Informasi",
-                    string.Format("alert(\"{0}\");", strPesan),
-                    true
-                  );
+                string errorex = ex.Message;
+                string pesan = "alert(\"ERROR LAINNYA;'" + errorex + "\");";
+                ScriptManager.RegisterStartupScript
+                    (this, GetType(), "UBAH DATA", pesan, true);
             }
         }
-
-        protected void Btn_hapus_Click(object sender, EventArgs e) {
+        protected void btnHapus_Click(object sender, EventArgs e) {
             try {
-                ClsKategori Obj = new ClsKategori();
-                Obj.PIdKategori = Tbox_id_kategori.Text;
-                if(Obj.hapus_data()) {
-                    strPesan = "Data berhasil di hapus.";
+                int _hasil;
+                _kategori.PIdKat = txtIdKat.Text;
+                _hasil = _kategori.Hapus();
+                if(_hasil == 1) {
+                    string pesan = "alert(\"Data Behasil Dihapus\");";
+                    ScriptManager.RegisterStartupScript
+                        (this, GetType(), "HAPUS DATA", pesan, true);
+                    bersih();
+                    txtIdKat.Text = _kategori.Autonumber();
                 } else {
-                    strPesan = "Data tidak berhasil hapus.";
+                    string pesan = "alert(\"Data Tidak Berhasil Dihapus\");";
+                    ScriptManager.RegisterStartupScript
+                        (this, typeof(string), "HAPUS DATA", pesan, true);
                 }
-                ScriptManager.RegisterStartupScript(
-                    this,
-                    GetType(),
-                    "Informasi",
-                    string.Format("alert(\"{0}\");", strPesan),
-                    true
-                  );
-                refresh_form();
             } catch(Exception ex) {
-                strPesan = "Error : " + ex.Message;
-                ScriptManager.RegisterStartupScript(
-                    this,
-                    GetType(),
-                    "Informasi",
-                    string.Format("alert(\"{0}\");", strPesan),
-                    true
-                  );
+                string errorex = ex.Message;
+                string pesan = "alert(\"ERROR LAINNYA;'" + errorex + "\");";
+                ScriptManager.RegisterStartupScript
+                    (this, GetType(), "HAPUS DATA", pesan, true);
             }
+
+        }
+        protected void btnBatal_Click(object sender, EventArgs e) {
+            bersih();
+            txtIdKat.Text = _kategori.Autonumber();
+        }
+        protected void txtCariNama_TextChanged(object sender, EventArgs e) {
+            BindGrid();
         }
 
-        protected void Btn_batal_Click(object sender, EventArgs e) {
-            refresh_form();
+        protected void gvKategori_SelectedIndexChanged(object sender, EventArgs e) {
+            txtIdKat.Text = gvKategori.SelectedRow.Cells[1].Text.ToString();
+            txtNmKat.Text = gvKategori.SelectedRow.Cells[2].Text.ToString();
+            txtInfoKat.Text = gvKategori.SelectedRow.Cells[3].Text.ToString();
+
         }
 
-        protected void Tbox_cari_TextChanged(object sender, EventArgs e) {
-            Gview_kategori.DataSource = _kategori.tampil_data(Tbox_cari.Text);
-            Gview_kategori.SelectedIndex = -1;
-            Gview_kategori.DataBind();
-        }
-
-        protected void Gview_kategori_SelectedIndexChanged(object sender, EventArgs e) {
-            Tbox_id_kategori.Text = Gview_kategori.SelectedDataKey["PIdKategori"].ToString();
-            Tbox_nama_kategori.Text = Gview_kategori.SelectedDataKey["PNmKategori"].ToString();
-            Tbox_info_kategori.Text = Gview_kategori.SelectedDataKey["PInfoKategori"].ToString();
-        }
-
-        protected void Gview_kategori_PageIndexChanging(object sender, GridViewPageEventArgs e) {
-            Gview_kategori.PageIndex = e.NewPageIndex;
-            Gview_kategori.DataSource = _kategori.tampil_data(Tbox_cari.Text);
-            Gview_kategori.DataBind();
-            Gview_kategori.SelectedIndex = -1;
+        protected void gvKategori_PageIndexChanging(object sender,
+            GridViewPageEventArgs e) {
+            gvKategori.PageIndex = e.NewPageIndex;
+            gvKategori.DataSource = _kategori.TampilData("");
+            gvKategori.DataBind();
+            gvKategori.SelectedIndex = -1;
         }
     }
 }
