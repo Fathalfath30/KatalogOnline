@@ -26,13 +26,13 @@ namespace KatalogOnline.DataKategori {
         protected void Page_Load(object sender, EventArgs e) {
 
             if(!IsPostBack) {
-                /*if(Session["Hak"] == null || Session["Hak"].ToString() != "1") {
+                if(Session["Hak"] == null || Session["Hak"].ToString() != "1") {
                     string pesan = "alert(\"Tidak Mempunyai Hak\");";
                     ScriptManager.RegisterStartupScript
                     (this, typeof(string), "HAK AKSES", pesan, true);
                     Response.AddHeader("REFRESH", "0;URL=../Default.aspx");
                     return;
-                }*/
+                }
                 txtNmKat.Focus();
                 bersih();
                 txtIdKat.Text = _kategori.Autonumber();

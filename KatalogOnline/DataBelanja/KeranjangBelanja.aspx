@@ -5,6 +5,9 @@
         .MainButton {
             width: 100px;
         }
+        .MainButton2 {
+            width: 100%;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Main_content" runat="server">
@@ -16,8 +19,24 @@
         </tr>
         <tr>
             <td colspan="3">
-                <asp:GridView runat="server"
-                    ID="Gview_keranjang">
+                <asp:GridView ID="gvKeranjang" runat="server" AutoGenerateColumns="False"
+                    OnRowCreated="gvKeranjang_RowCreated"
+                    OnRowDeleting="gvKeranjang_RowDeleting"
+                    CssClass="table table-striped table-bordered"
+                    OnSelectedIndexChanged="gvKeranjang_SelectedIndexChanged"
+                    autopostback="True">
+                    <Columns>
+                        <asp:CommandField ShowSelectButton="True" />
+                        <asp:CommandField ShowDeleteButton="True" />
+                        <asp:BoundField HeaderText="No." />
+                        <asp:BoundField DataField="PKdBrg" HeaderText="Kode Barang" />
+                        <asp:BoundField DataField="PNmBrg" HeaderText="Nama Barang" />
+                        <asp:BoundField DataField="PHrgBrg" DataFormatString="{0:C}"
+                            HeaderText="Harga Barang" />
+                        <asp:BoundField DataField="PJmlBrg" HeaderText="Jumlah" />
+                        <asp:BoundField DataField="PSubTotal" DataFormatString="{0:C}"
+                            HeaderText="Jumlah Harga" />
+                    </Columns>
                 </asp:GridView>
             </td>
         </tr>
@@ -25,26 +44,20 @@
             <td>Jumlah Item</td>
             <td>:</td>
             <td>
-                <asp:Label runat="server"
-                    ID="Lbl_jumlah_item"
-                    Text="TAMPIL JUMLAH ITEM" />
+                <asp:Label ID="lblJumlahItem" runat="server" Text="TAMPIL JUMLAH ITEM"></asp:Label>
             </td>
         </tr>
         <tr>
             <td>Total Bayar</td>
             <td>:</td>
             <td>
-                <asp:Label runat="server"
-                    ID="Lbl_total_bayar"
-                    Text="TAMPIL TOTAL BAYAR" />
+                <asp:Label ID="lblTotalBayar" runat="server" Text="TAMPIL TOTAL BAYAR"></asp:Label>
             </td>
         </tr>
         <tr>
             <td colspan="3">
-                <asp:Button runat="server"
-                    ID="Btn_konfirmasi"
-                    Width="100%"
-                    Text="KONFIRMASI PEMBELIAN" />
+                <asp:Button ID="btnKonfirmasi" runat="server" Text="KONFIRMASI PEMBELIAN"
+                    CssClass="MainButton2" OnClick="btnKonfirmasi_Click" />
             </td>
         </tr>
         <tr>
@@ -57,61 +70,34 @@
                         <td>Nama Barang</td>
                         <td>:</td>
                         <td>
-                            <asp:Label runat="server"
-                                ID="Lbl_nama_barang"
-                                Text="TAMPIL NAMA BARANG" />
+                            <asp:Label ID="lblNmBrg" runat="server" Text="TAMPIL NAMA BARANG"></asp:Label>
                         </td>
                     </tr>
                     <tr>
                         <td>Jumlah barang</td>
                         <td>:</td>
                         <td>
-                            <asp:DropDownList runat="server"
-                                ID="Dlist_jumlah_barang">
-                                <asp:ListItem Value="1">1</asp:ListItem>
-                                <asp:ListItem Value="2">2</asp:ListItem>
-                                <asp:ListItem Value="3">3</asp:ListItem>
-                                <asp:ListItem Value="4">4</asp:ListItem>
-                                <asp:ListItem Value="5">5</asp:ListItem>
-                                <asp:ListItem Value="6">6</asp:ListItem>
-                                <asp:ListItem Value="7">7</asp:ListItem>
-                                <asp:ListItem Value="8">8</asp:ListItem>
-                                <asp:ListItem Value="9">9</asp:ListItem>
-                                <asp:ListItem Value="10">10</asp:ListItem>
+                            <asp:DropDownList class="form-control col-sm-1" ID="ddJmlBrg" runat="server">
+                                <asp:ListItem>1</asp:ListItem>
+                                <asp:ListItem>2</asp:ListItem>
+                                <asp:ListItem>3</asp:ListItem>
+                                <asp:ListItem>4</asp:ListItem>
+                                <asp:ListItem>5</asp:ListItem>
+                                <asp:ListItem>6</asp:ListItem>
+                                <asp:ListItem>7</asp:ListItem>
+                                <asp:ListItem>8</asp:ListItem>
+                                <asp:ListItem>9</asp:ListItem>
+                                <asp:ListItem>10</asp:ListItem>
                             </asp:DropDownList>
                         </td>
                     </tr>
                     <tr>
                         <td colspan="3">
-                            <asp:Button runat="server"
-                                ID="Btn_update_jumlah_barang"
-                                Width="100%"
-                                Text="UPDATE JUMLAH BARANG" />
+                            <asp:Button ID="btnUbah" runat="server" class="MainButton2" OnClick="btnUbah_Click"
+                                PostBackUrl="~/DataBelanja/KeranjangBelanja.aspx" Text="EDIT JUMLAH BARANG" />
                         </td>
                     </tr>
                 </table>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="3">
-                <asp:Button runat="server"
-                    ID="Btn_simpan"
-                    CssClass="MainButton"
-                    Text="Simpan"
-                    ValidationGroup="FrmEntry" />
-                <asp:Button runat="server"
-                    ID="Btn_ubah"
-                    CssClass="MainButton"
-                    Text="Ubah"
-                    ValidationGroup="FrmEntry" />
-                <asp:Button runat="server"
-                    ID="Btn_hapus"
-                    CssClass="MainButton"
-                    Text="Hapus" />
-                <asp:Button runat="server"
-                    ID="Btn_batal"
-                    CssClass="MainButton"
-                    Text="Batal" />
             </td>
         </tr>
     </table>

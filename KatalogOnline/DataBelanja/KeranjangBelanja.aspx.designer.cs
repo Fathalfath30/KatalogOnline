@@ -13,102 +13,66 @@ namespace KatalogOnline.DataBelanja {
     public partial class KeranjangBelanja {
         
         /// <summary>
-        /// Gview_keranjang control.
+        /// gvKeranjang control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView Gview_keranjang;
+        protected global::System.Web.UI.WebControls.GridView gvKeranjang;
         
         /// <summary>
-        /// Lbl_jumlah_item control.
+        /// lblJumlahItem control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_jumlah_item;
+        protected global::System.Web.UI.WebControls.Label lblJumlahItem;
         
         /// <summary>
-        /// Lbl_total_bayar control.
+        /// lblTotalBayar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_total_bayar;
+        protected global::System.Web.UI.WebControls.Label lblTotalBayar;
         
         /// <summary>
-        /// Btn_konfirmasi control.
+        /// btnKonfirmasi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Btn_konfirmasi;
+        protected global::System.Web.UI.WebControls.Button btnKonfirmasi;
         
         /// <summary>
-        /// Lbl_nama_barang control.
+        /// lblNmBrg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_nama_barang;
+        protected global::System.Web.UI.WebControls.Label lblNmBrg;
         
         /// <summary>
-        /// Dlist_jumlah_barang control.
+        /// ddJmlBrg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList Dlist_jumlah_barang;
+        protected global::System.Web.UI.WebControls.DropDownList ddJmlBrg;
         
         /// <summary>
-        /// Btn_update_jumlah_barang control.
+        /// btnUbah control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Btn_update_jumlah_barang;
-        
-        /// <summary>
-        /// Btn_simpan control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Btn_simpan;
-        
-        /// <summary>
-        /// Btn_ubah control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Btn_ubah;
-        
-        /// <summary>
-        /// Btn_hapus control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Btn_hapus;
-        
-        /// <summary>
-        /// Btn_batal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Btn_batal;
+        protected global::System.Web.UI.WebControls.Button btnUbah;
     }
 }

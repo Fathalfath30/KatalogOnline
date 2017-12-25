@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="Main_head" runat="server">
     <style type="text/css">
         .MainButton {
-            width: 100px;
+            width: 100%;
         }
     </style>
 </asp:Content>
@@ -21,8 +21,17 @@
         </tr>
         <tr>
             <td colspan="3" align="center">
-                <asp:DetailsView runat="server"
-                    ID="Dview_pembeli"></asp:DetailsView>
+                <asp:DetailsView ID="dvPembeli" runat="server" Height="50px" 
+                        Width="500px" AutoGenerateRows="False" 
+                        CssClass="table table-bordered">
+                    <Fields>
+                        <asp:BoundField DataField="PUsername" HeaderText="Username" />
+                        <asp:BoundField DataField="PNama" HeaderText="Nama" />
+                        <asp:BoundField DataField="PNoTelp" HeaderText="No Telepon" />
+                        <asp:BoundField DataField="PNoKartuKredit" HeaderText="Kartu Kredit" />
+                    </Fields>
+                    </asp:DetailsView>
+                </td>
             </td>
         </tr>
         <tr>
@@ -30,8 +39,20 @@
         </tr>
         <tr>
             <td colspan="3" align="center">
-                <asp:GridView runat="server"
-                    ID="Gview_rincian">
+                <asp:GridView ID="gvKeranjang" runat="server" 
+                    OnRowCreated="gvKeranjang_RowCreated" 
+                    OnPageIndexChanging="gvKeranjang_PageIndexChanging"
+                    nnSelectedindexchanged="gvKeranjang_SelectedIndexChanged" 
+                    CssClass="table table-bordered table-striped"
+                    AutoGenerateColumns="False">
+                    <Columns>
+                        <asp:BoundField HeaderText="No" />
+                        <asp:BoundField DataField="PKdBrg" HeaderText="Kode Barang" />
+                        <asp:BoundField DataField="PNmBrg" HeaderText="Nama Barang" />
+                        <asp:BoundField DataField="PHrgBrg" HeaderText="Harga Barang" />
+                        <asp:BoundField DataField="PJmlBrg" HeaderText="Jumlah" />
+                        <asp:BoundField DataField="PSubtotal" HeaderText="Jumlah Harga" />
+                    </Columns>
                 </asp:GridView>
             </td>
         </tr>
@@ -39,71 +60,40 @@
             <td>Jumlah Item</td>
             <td>:</td>
             <td>
-                <asp:Label runat="server"
-                    ID="Lbl_jumlah_item"
-                    Text="TAMPIL JUMLAH ITEM" />
+                <asp:Label ID="lblJmlItem" runat="server" Text="TAMPIL JUMLAH ITEM "></asp:Label>
             </td>
         </tr>
         <tr>
             <td>Total Bayar</td>
             <td>:</td>
             <td>
-                <asp:Label runat="server"
-                    ID="Lbl_total_bayar"
-                    Text="TAMPIL TOTAL BAYAR" />
+                <asp:Label ID="lblTotalBayar" runat="server" Text="TAMPIL TOTAL BAYAR"></asp:Label>
             </td>
         </tr>
         <tr>
             <td colspan="3">
-                <asp:Button runat="server"
-                    ID="Btn_konfirmasi"
-                    Width="100%"
-                    Text="Ya, Tagih dan Kirim Barangnya" />
+                <asp:Button ID="btnYaSimpan" runat="server" 
+                    Text="Ya, Tagih dan Kirim Barangnya "  
+                    onclick="btnYaSimpan_Click" class="MainButton"/>
             </td>
         </tr>
         <tr>
             <td colspan="3">
-                <asp:Button runat="server"
-                    ForeColor="Red"
-                    ID="Button1"
-                    Width="100%"
-                    Text="Tidak, Saya ingin batal" />
+                <asp:Button ID="btnTidak" runat="server" ForeColor="White" 
+                    Text="Tidak, Saya Ingin Batal" onclick="btnTidak_Click" class="MainButton"/>
             </td>
         </tr>
         <tr>
             <td colspan="3">
-                <asp:Button runat="server"
-                    ID="Button2"
-                    Width="100%"
-                    Text="Saya masin ingin mengubah daftar belanja" />
+                <asp:Button ID="btnBelanjaLagi" runat="server" 
+                    Text="Saya Masih Ingin Merubah Daftar Belanja"
+                    onclick="btnBelanjaLagi_Click" class="MainButton"/>
             </td>
         </tr>
         <tr>
             <td></td>
             <td>:</td>
             <td></td>
-        </tr>
-        <tr>
-            <td colspan="3">
-                <asp:Button runat="server"
-                    ID="Btn_simpan"
-                    CssClass="MainButton"
-                    Text="Simpan"
-                    ValidationGroup="FrmEntry" />
-                <asp:Button runat="server"
-                    ID="Btn_ubah"
-                    CssClass="MainButton"
-                    Text="Ubah"
-                    ValidationGroup="FrmEntry" />
-                <asp:Button runat="server"
-                    ID="Btn_hapus"
-                    CssClass="MainButton"
-                    Text="Hapus" />
-                <asp:Button runat="server"
-                    ID="Btn_batal"
-                    CssClass="MainButton"
-                    Text="Batal" />
-            </td>
         </tr>
     </table>
 </asp:Content>

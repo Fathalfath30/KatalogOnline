@@ -13,12 +13,12 @@ namespace KatalogOnline {
     public partial class Login {
         
         /// <summary>
-        /// Form_login control.
+        /// LogWebOnline control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Login Form_login;
+        protected global::System.Web.UI.WebControls.Login LogWebOnline;
     }
 }
