@@ -13,10 +13,9 @@ using System.Xml.Linq;
 
 namespace KatalogOnline.DataPengguna {
     public partial class ManajemenPengguna : System.Web.UI.Page {
-
         ClsPengguna _pengguna = new ClsPengguna();
 
-
+   
         private void BindDataList() {
             dlPengguna.DataSource = _pengguna.TampilData(txtCariNama.Text);
             dlPengguna.SelectedIndex = -1;

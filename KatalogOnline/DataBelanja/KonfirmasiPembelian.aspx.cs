@@ -50,35 +50,37 @@ namespace KatalogOnline.DataBelanja {
                 _kdPesan = _pesan.Autonumber();
                 _pesan.PKdPesan = _kdPesan;
                 _pesan.PTglPesan = DateTime.Today;
-                _pesan.PUserName = Session["Username"].ToString();
+                _pesan.PUserName = Session["username"].ToString();
                 _hasilPesan = _pesan.Simpan();
 
                 int x;
                 for(x = 0; x <= gvKeranjang.Rows.Count - 1; x++) {
                     _detilpesan.PKdPesan = _kdPesan;
                     _detilpesan.PKdBrg = gvKeranjang.Rows[x].Cells[1].Text.ToString();
-                    _detilpesan.PHrgPesan = System.Convert.ToDouble(gvKeranjang.Rows[x].Cells[3].Text);
-                    _detilpesan.PJmlPesan = System.Convert.ToInt16(gvKeranjang.Rows[x].Cells[4].Text);
+                    _detilpesan.PHrgPesan =
+                    System.Convert.ToDouble(gvKeranjang.Rows[x].Cells[3].Text);
+                    _detilpesan.PJmlPesan =
+                    System.Convert.ToInt16(gvKeranjang.Rows[x].Cells[4].Text);
                     _hasilDetilPesan = _detilpesan.Simpan();
                 }
                 if(_hasilPesan == 1 && _hasilDetilPesan == 1) {
                     Session["cart"] = null;
                     string pesan = "alert(\"Data Pesan dan Detil Pesan Berhasil Disimpan\");";
-                    ScriptManager.RegisterStartupScript
-                        (this, GetType(), "SIMPAN DATA", pesan, true);
-                    Response.AddHeader("REFRESH", "0;URL=../Default.aspx");
+                    ScriptManager.RegisterStartupScript(this, GetType(),
+                    "SIMPAN DATA", pesan, true);
+                    Session["xKdPesan"] = _kdPesan;
+                    Response.AddHeader(
+                       "REFRESH", "0;URL=../DataBelanja/CetakKonfirmasi.aspx");
                 } else {
                     Session["cart"] = null;
                     string pesan = "alert(\"Data Pesan dan Detil Pesan Tidak Berhasil Disimpan\");";
-                    ScriptManager.RegisterStartupScript
-                    (this, GetType(), "SIMPAN DATA", pesan, true);
+                    ScriptManager.RegisterStartupScript(this, GetType(), "SIMPAN DATA", pesan, true);
                     Response.AddHeader("REFRESH", "0;URL=../Default.aspx");
                 }
             } catch(Exception ex) {
                 string errorex = ex.Message;
-                string pesan = "alert(\"ERROR LAINNYA : '" + errorex + "\");";
-                ScriptManager.RegisterStartupScript
-                    (this, GetType(), "SIMPAN DATA", pesan, true);
+                string pesan = "alert(\"ERROR LAINNYA: '" + errorex + "\");";
+                ScriptManager.RegisterStartupScript(this, GetType(), "SIMPAN DATA", pesan, true);
                 Response.AddHeader("REFRESH", "0;URL=../Default.aspx");
             }
         }
